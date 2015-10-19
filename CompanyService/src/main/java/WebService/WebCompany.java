@@ -8,6 +8,7 @@ package WebService;
 import Domain.Department;
 import Service.CompanyService;
 import java.util.ArrayList;
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 /**
@@ -19,21 +20,25 @@ public class WebCompany {
     
     private CompanyService service = new CompanyService();
     
+    @WebMethod
     public ArrayList<Department> getDepartments()
     {
         return service.getDepartments();
     }
     
+    @WebMethod
     public Department getDepartment(int number)
     {
         return service.getDepartment(number);
     }
     
+    @WebMethod
     public void addDepartment(Department dep)
     {
         service.addDepartment(dep);
     }
     
+    @WebMethod
     public void removeDepartment(Department dep)
     {
         service.removeDepartment(dep);

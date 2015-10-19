@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Jelle
  */
 public class Company {
-    
+
     private String name;
     private ArrayList<Department> departments;
 
@@ -20,31 +20,27 @@ public class Company {
         this.name = name;
         this.departments = new ArrayList<>();
     }
-    
-    public void addDepartment(Department dep)
-    {
+
+    public Company() {
+    }
+
+    public void addDepartment(Department dep) {
         this.departments.add(dep);
     }
-    
-    public void removeDepartment(Department dep)
-    {
-        if (departments.contains(dep))
-        {
+
+    public void removeDepartment(Department dep) {
+        if (departments.contains(dep)) {
             departments.remove(dep);
         }
     }
-    
-    public ArrayList<Department> getDepartments()
-    {
+
+    public ArrayList<Department> getDepartments() {
         return this.departments;
     }
-    
-    public Department getDepartment(int number)
-    {
-        for (Department d : departments)
-        {
-            if (d.getDepNumber() == number)
-            {
+
+    public Department getDepartment(int number) {
+        for (Department d : departments) {
+            if (d.getDepNumber() == number) {
                 return d;
             }
         }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Jelle
  */
 public class Department {
-    
+
     private String depName;
     private int depNumber;
     private ArrayList<Employee> employees;
@@ -22,6 +22,10 @@ public class Department {
         this.depNumber = depNumber;
         this.employees = new ArrayList<>();
     }
+
+    public Department() {
+    }
+    
 
     public String getDepName() {
         return depName;
@@ -38,25 +42,20 @@ public class Department {
     public void setDepNumber(int depNumber) {
         this.depNumber = depNumber;
     }
-    
-    public void addEmployee(Employee emp)
-    {
+
+    public void addEmployee(Employee emp) {
         this.employees.add(emp);
     }
-    
-    public void deleteEmployee(Employee emp)
-    {
-        if (employees.contains(emp))
-        {
+
+    public void deleteEmployee(Employee emp) {
+        if (employees.contains(emp)) {
             employees.remove(emp);
         }
     }
-    
+
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Nummer: " + this.depNumber + " Naam: " + this.depName;
     }
-    
-    
+
 }

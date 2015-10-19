@@ -19,6 +19,9 @@ public class Employee {
         this.lastname = lastname;
     }
 
+    public Employee() {
+    }
+
     public String getFirstname() {
         return this.firstname;
     }
