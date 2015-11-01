@@ -18,7 +18,22 @@ public class CompanyServiceClient {
      */
     public static void main(String[] args) {
         
+        System.out.println("getDepartments");
+        for (Department d : getDepartments())
+        {
+            System.out.format("Number %d - Name %s\n", d.getDepNumber(), d.getDepName());
+        }
         
+        System.out.println("getDepartment (0)");
+        Department dept = getDepartment(0);
+        System.out.format("Number %d - Name %s\n", dept.getDepNumber(), dept.getDepName());
+        
+        System.out.println("removeDepartment(0)");
+        removeDepartment(dept);
+        for (Department d : getDepartments())
+        {
+            System.out.format("Number %d - Name %s\n", d.getDepNumber(), d.getDepName());
+        }
     }
 
     private static void addDepartment(webservice.Department arg0) {

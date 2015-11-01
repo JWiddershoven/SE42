@@ -17,16 +17,17 @@ public class Department {
     private int depNumber;
     private ArrayList<Employee> employees;
 
+    public Department()
+    {
+        
+    }
+    
     public Department(String depName, int depNumber) {
         this.depName = depName;
         this.depNumber = depNumber;
         this.employees = new ArrayList<>();
     }
-
-    public Department() {
-    }
     
-
     public String getDepName() {
         return depName;
     }
@@ -51,6 +52,11 @@ public class Department {
         if (employees.contains(emp)) {
             employees.remove(emp);
         }
+    }
+    
+    public ArrayList<Employee> getEmployees()
+    {
+        return this.employees;
     }
 
     @Override

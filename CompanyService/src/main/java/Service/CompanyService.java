@@ -15,26 +15,30 @@ import java.util.ArrayList;
  * @author Jelle
  */
 public class CompanyService {
-    
+
     private Company comp = new Company("Philips");
-    
-    public void addDepartment(Department dep)
-    {
+
+    public CompanyService() {
+        comp.addDepartment(new Department("Lighting", 0));
+        Department dept = new Department("Customer Support", 1);
+        dept.addEmployee(new Employee("Jelle", "Widdershoven"));
+        dept.addEmployee(new Employee("Jordy", "Guzak"));
+        comp.addDepartment(dept);
+    }
+
+    public void addDepartment(Department dep) {
         comp.addDepartment(dep);
     }
-    
-    public void removeDepartment(Department dep)
-    {
+
+    public void removeDepartment(Department dep) {
         comp.removeDepartment(dep);
     }
-    
-    public ArrayList<Department> getDepartments()
-    {
-       return comp.getDepartments();
+
+    public ArrayList<Department> getDepartments() {
+        return comp.getDepartments();
     }
-    
-    public Department getDepartment(int number)
-    {
+
+    public Department getDepartment(int number) {
         return comp.getDepartment(number);
     }
 }
