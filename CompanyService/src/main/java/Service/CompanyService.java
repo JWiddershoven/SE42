@@ -24,6 +24,7 @@ public class CompanyService {
         dept.addEmployee(new Employee("Jelle", "Widdershoven"));
         dept.addEmployee(new Employee("Jordy", "Guzak"));
         comp.addDepartment(dept);
+        comp.addDepartment(new Department("Human Resources", 2));
     }
 
     public void addDepartment(Department dep) {

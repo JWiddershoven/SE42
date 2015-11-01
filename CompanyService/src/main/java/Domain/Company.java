@@ -29,13 +29,16 @@ public class Company {
     }
 
     public void removeDepartment(Department dep) {
+       Department dept = null;
        for (Department d : departments)
        {
            if (d.getDepName().equals(dep.getDepName()))
            {
-               departments.remove(d);
+               dept = d;
            }
        }
+       
+       departments.remove(dept);
     }
 
     public ArrayList<Department> getDepartments() {

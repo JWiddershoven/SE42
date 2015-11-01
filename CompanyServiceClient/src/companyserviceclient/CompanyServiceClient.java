@@ -6,6 +6,7 @@
 package companyserviceclient;
 
 import webservice.Department;
+import webservice.Employee;
 
 /**
  *
@@ -17,7 +18,7 @@ public class CompanyServiceClient {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+                   
         System.out.println("getDepartments");
         for (Department d : getDepartments())
         {
@@ -34,6 +35,14 @@ public class CompanyServiceClient {
         {
             System.out.format("Number %d - Name %s\n", d.getDepNumber(), d.getDepName());
         }
+        
+//        System.out.println("getEmployees (1)");
+//        Department dept1 = getDepartment(1);
+//        for (Employee e : getEmployees(dept1))
+//        {
+//            System.out.format("Firstname %s - Lastname %s\n", e.getFirstname(), e.getLastname());
+//        }
+        
     }
 
     private static void addDepartment(webservice.Department arg0) {
@@ -59,5 +68,11 @@ public class CompanyServiceClient {
         webservice.WebCompany port = service.getWebCompanyPort();
         return port.getDepartments();
     }
-    
+
+    private static java.util.List<webservice.Employee> getEmployees(webservice.Department arg0) {
+        webservice.WebCompanyService service = new webservice.WebCompanyService();
+        webservice.WebCompany port = service.getWebCompanyPort();
+        return port.getEmployees(arg0);
+    }
+       
 }

@@ -12,6 +12,10 @@
 
 <xs:element name="getDepartmentsResponse" type="tns:getDepartmentsResponse"></xs:element>
 
+<xs:element name="getEmployees" type="tns:getEmployees"></xs:element>
+
+<xs:element name="getEmployeesResponse" type="tns:getEmployeesResponse"></xs:element>
+
 <xs:element name="removeDepartment" type="tns:removeDepartment"></xs:element>
 
 <xs:element name="removeDepartmentResponse" type="tns:removeDepartmentResponse"></xs:element>
@@ -62,6 +66,25 @@
 <xs:complexType name="getDepartmentsResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:department" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEmployees">
+<xs:sequence>
+<xs:element name="arg0" type="tns:department" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getEmployeesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:employee" minOccurs="0" maxOccurs="unbounded"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="employee">
+<xs:sequence>
+<xs:element name="firstname" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="lastname" type="xs:string" minOccurs="0"></xs:element>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

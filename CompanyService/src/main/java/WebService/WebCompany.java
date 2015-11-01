@@ -6,6 +6,7 @@
 package WebService;
 
 import Domain.Department;
+import Domain.Employee;
 import Service.CompanyService;
 import java.util.ArrayList;
 import javax.jws.WebMethod;
@@ -42,5 +43,11 @@ public class WebCompany {
     public void removeDepartment(Department dep)
     {
         service.removeDepartment(dep);
+    }
+    
+    @WebMethod
+    public ArrayList<Employee> getEmployees(Department dep)
+    {
+        return dep.getEmployees();
     }
 }
