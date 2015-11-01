@@ -31,6 +31,7 @@ public class CompanyServiceClient {
         
         System.out.println("removeDepartment(0)");
         removeDepartment(dept);
+        System.out.println("getDepartments");
         for (Department d : getDepartments())
         {
             System.out.format("Number %d - Name %s\n", d.getDepNumber(), d.getDepName());
