@@ -18,7 +18,7 @@ import javax.persistence.NamedQuery;
 public class Account implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long Id;
     @Column(unique = true)
     private Long accountNr;

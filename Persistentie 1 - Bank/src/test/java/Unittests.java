@@ -139,7 +139,7 @@ public class Unittests {
      SELECT LAST_INSERT_ID()
      SELECT ID, ACCOUNTNR, BALANCE, THRESHOLD FROM ACCOUNT WHERE (ID = ?)
      bind => [16]
-     3.	Wat is het eindresultaat in de database?
+     2.	Wat is het eindresultaat in de database?
      ID: 22 ACCOUNTNR: 114 BALANCE: 400 THRESHOLD: 0
      */
     @Test
@@ -173,14 +173,14 @@ public class Unittests {
 
     /*
      1.	Welke SQL statements worden gegenereerd?
-        DELETE FROM ACCOUNT
-        INSERT INTO ACCOUNT (ACCOUNTNR, BALANCE, THRESHOLD) VALUES (?, ?, ?)
-	bind => [114, 400, 0]
-        SELECT LAST_INSERT_ID()
-        SELECT ID, ACCOUNTNR, BALANCE, THRESHOLD FROM ACCOUNT WHERE (ID = ?)
-	bind => [30]
+     DELETE FROM ACCOUNT
+     INSERT INTO ACCOUNT (ACCOUNTNR, BALANCE, THRESHOLD) VALUES (?, ?, ?)
+     bind => [114, 400, 0]
+     SELECT LAST_INSERT_ID()
+     SELECT ID, ACCOUNTNR, BALANCE, THRESHOLD FROM ACCOUNT WHERE (ID = ?)
+     bind => [30]
      2.	Wat is het eindresultaat in de database?
-        ID: 30  ACCOUNTNR: 114 BALANCE: 400 THRESHOLD: 0
+     ID: 30  ACCOUNTNR: 114 BALANCE: 400 THRESHOLD: 0
      */
     @Test
     public void vraag5() throws SQLException {
@@ -199,7 +199,7 @@ public class Unittests {
         //account.getBalance() returned 400, omdat het balance is veranderd naar 400 en vervolgens is er een commit() aangeroepen.
         Long acId = account.getId();
         account = null;
-       
+
         EntityManager em2 = emf.createEntityManager();
         em2.getTransaction().begin();
         Account found = em2.find(Account.class, acId);
@@ -213,4 +213,173 @@ public class Unittests {
         System.out.println(found.getBalance()); //-200L
         assertEquals(account.getBalance(), found.getBalance());
     }
+
+    @Test
+    public void vraag6() throws SQLException {
+        EntityManager em = emf.createEntityManager();
+        AccountDAOJPAImpl DAO = new AccountDAOJPAImpl(em);
+        DatabaseCleaner cleaner = new DatabaseCleaner(emf.createEntityManager());
+        cleaner.clean();
+
+        Account acc = new Account(1L);
+        Account acc2 = new Account(2L);
+        Account acc9 = new Account(9L);
+
+        // scenario 1
+        Long balance1 = 100L;
+        em.getTransaction().begin();
+        em.persist(acc);
+        acc.setBalance(balance1);
+        em.getTransaction().commit();
+        //TODO: voeg asserties toe om je verwachte waarde van de attributen te verifieren.
+        assertEquals(balance1, acc.getBalance());
+        assertEquals(new Long(0), acc.getThreshold());
+        assertEquals(new Long(1), acc.getAccountNr());
+        //TODO: doe dit zowel voor de bovenstaande java objecten als voor opnieuw bij de entitymanager opgevraagde objecten met overeenkomstig Id.
+        acc = em.find(Account.class, acc.getId());
+        assertEquals(balance1, acc.getBalance());
+        assertEquals(new Long(0), acc.getThreshold());
+        assertEquals(new Long(1), acc.getAccountNr());
+
+        // scenario 2
+        Long balance2a = 211L;
+        acc = new Account(2L);
+        em.getTransaction().begin();
+        acc9 = em.merge(acc);
+        acc.setBalance(balance2a);
+        acc9.setBalance(balance2a + balance2a);
+        em.getTransaction().commit();
+        //TODO: voeg asserties toe om je verwachte waarde van de attributen te verifiëren.
+        assertEquals(new Long(2), acc.getAccountNr());
+        assertEquals(new Long(0), acc.getThreshold());
+        assertEquals(balance2a, acc.getBalance());
+        assertEquals(new Long(balance2a + balance2a), acc9.getBalance());
+        //TODO: doe dit zowel voor de bovenstaande java objecten als voor opnieuw bij de entitymanager opgevraagde objecten met overeenkomstig Id. 
+        // HINT: gebruik acccountDAO.findByAccountNr
+        acc = DAO.findByAccountNr(acc.getAccountNr());
+        assertEquals(new Long(2), acc.getAccountNr());
+        assertEquals(new Long(0), acc.getThreshold());
+        assertEquals(new Long(balance2a + balance2a), acc.getBalance());
+        assertEquals(new Long(balance2a + balance2a), acc9.getBalance());
+
+        // scenario 3
+        Long balance3b = 322L;
+        Long balance3c = 333L;
+        acc = new Account(3L);
+        em.getTransaction().begin();
+        acc2 = em.merge(acc);
+        //assertTrue(em.contains(acc)); // verklaar AssertionError?
+        assertTrue(em.contains(acc2)); // verklaar
+        //assertEquals(acc, acc2);  //verklaar Zelfde waardes maar toch anders?
+        acc2.setBalance(balance3b);
+        acc.setBalance(balance3c);
+        em.getTransaction().commit();
+        //TODO: voeg asserties toe om je verwachte waarde van de attributen te verifiëren.
+        assertEquals(new Long(3), acc.getAccountNr());
+        assertEquals(balance3b, acc2.getBalance());
+        assertEquals(balance3c, acc.getBalance());
+        //TODO: doe dit zowel voor de bovenstaande java objecten als voor opnieuw bij de entitymanager opgevraagde objecten met overeenkomstig Id.
+        acc = em.find(Account.class, acc2.getId());
+        assertEquals(new Long(3), acc2.getAccountNr());
+        assertEquals(balance3b, acc2.getBalance());
+
+        // scenario 4
+        Account account = new Account(114L);
+        account.setBalance(450L);
+        EntityManager em2 = emf.createEntityManager();
+        em2.getTransaction().begin();
+        em2.persist(account);
+        em2.getTransaction().commit();
+        //Account:
+        //Nummer: 114 Balans: 450
+
+        Account account2 = new Account(114L);
+        Account tweedeAccountObject = account2;
+        tweedeAccountObject.setBalance(650l);
+        assertEquals((Long) 650L, account2.getBalance());  //verklaar
+        //tweedeAccountObject == account2, dus ook hetzelfde balans.
+        account2.setId(account.getId());
+        em2.getTransaction().begin();
+        account2 = em2.merge(account2);
+        assertSame(account, account2);  //verklaar
+        //account en account2 hebben hetzelfde ID.
+        assertTrue(em2.contains(account2));  //verklaar
+        //account2 is managed door em2.
+        assertFalse(em2.contains(tweedeAccountObject));  //verklaar
+        //tweedeAccountObject is managed door em2.
+        tweedeAccountObject.setBalance(850l);
+        assertEquals((Long) 650L, account.getBalance());  //verklaar
+        //account == account2, dus ook zelfde balans.
+        assertEquals((Long) 650L, account2.getBalance());  //verklaar
+        //account == account2, dus ook zelfde balans.
+        em2.getTransaction().commit();
+        em2.close();
+    }
+
+    @Test
+    public void vraag7() {
+        EntityManager em = emf.createEntityManager();
+        Account acc1 = new Account(77L);
+        em.getTransaction().begin();
+        em.persist(acc1);
+        em.getTransaction().commit();
+        //Database bevat nu een account.
+
+        // scenario 1        
+        Account accF1;
+        Account accF2;
+        accF1 = em.find(Account.class, acc1.getId());
+        accF2 = em.find(Account.class, acc1.getId());
+        assertSame(accF1, accF2);
+
+        // scenario 2        
+        accF1 = em.find(Account.class, acc1.getId());
+        em.clear();
+        accF2 = em.find(Account.class, acc1.getId());
+        assertNotSame(accF1, accF2);
+        //TODO verklaar verschil tussen beide scenario's
+        /*
+         Scenario 1:
+         Beide accounts zijn gelijk.
+         Scenario 2:
+         Doordat clear() wordt gebruikt worden alle managed entities verwijderd en daardoor zijn de objecten niet meer gelijk aan elkaar.
+         */
+    }
+
+    @Test
+    public void vraag8() {
+        EntityManager em = emf.createEntityManager();
+        Account acc1 = new Account(88L);
+        em.getTransaction().begin();
+        em.persist(acc1);
+        em.getTransaction().commit();
+        Long id = acc1.getId();
+        //Database bevat nu een account.
+
+        em.remove(acc1);
+        assertEquals(id, acc1.getId());
+        Account accFound = em.find(Account.class, id);
+        assertNull(accFound);
+        //TODO: verklaar bovenstaande asserts
+        /*
+         Voor de eerste assertEquals wordt acc1 uit de EntityManager verwijderd.
+         In de tweede assertEquals is accFound null, omdat...
+         */
+    }
+
+    @Test
+    public void vraag9() throws SQLException {
+        EntityManager em = emf.createEntityManager();
+        DatabaseCleaner cleaner = new DatabaseCleaner(emf.createEntityManager());
+        cleaner.clean();
+        
+        Account account = new Account(111L);
+        em.getTransaction().begin();
+        em.persist(account);
+        assertNull(account.getId());
+        em.getTransaction().commit();
+        System.out.println("AccountId: " + account.getId());
+        assertTrue(account.getId() > 0L);
+    }
+
 }
