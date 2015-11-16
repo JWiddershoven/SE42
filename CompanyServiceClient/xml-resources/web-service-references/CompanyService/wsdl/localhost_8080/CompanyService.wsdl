@@ -4,12 +4,6 @@
 <xsd:import namespace="http://WebService/" schemaLocation="http://localhost:8080/CompanyService?xsd=1"></xsd:import>
 </xsd:schema>
 </types>
-<message name="getDepartments">
-<part name="parameters" element="tns:getDepartments"></part>
-</message>
-<message name="getDepartmentsResponse">
-<part name="parameters" element="tns:getDepartmentsResponse"></part>
-</message>
 <message name="getDepartment">
 <part name="parameters" element="tns:getDepartment"></part>
 </message>
@@ -34,11 +28,13 @@
 <message name="getEmployeesResponse">
 <part name="parameters" element="tns:getEmployeesResponse"></part>
 </message>
+<message name="getDepartments">
+<part name="parameters" element="tns:getDepartments"></part>
+</message>
+<message name="getDepartmentsResponse">
+<part name="parameters" element="tns:getDepartmentsResponse"></part>
+</message>
 <portType name="WebCompany">
-<operation name="getDepartments">
-<input wsam:Action="http://WebService/WebCompany/getDepartmentsRequest" message="tns:getDepartments"></input>
-<output wsam:Action="http://WebService/WebCompany/getDepartmentsResponse" message="tns:getDepartmentsResponse"></output>
-</operation>
 <operation name="getDepartment">
 <input wsam:Action="http://WebService/WebCompany/getDepartmentRequest" message="tns:getDepartment"></input>
 <output wsam:Action="http://WebService/WebCompany/getDepartmentResponse" message="tns:getDepartmentResponse"></output>
@@ -55,18 +51,13 @@
 <input wsam:Action="http://WebService/WebCompany/getEmployeesRequest" message="tns:getEmployees"></input>
 <output wsam:Action="http://WebService/WebCompany/getEmployeesResponse" message="tns:getEmployeesResponse"></output>
 </operation>
+<operation name="getDepartments">
+<input wsam:Action="http://WebService/WebCompany/getDepartmentsRequest" message="tns:getDepartments"></input>
+<output wsam:Action="http://WebService/WebCompany/getDepartmentsResponse" message="tns:getDepartmentsResponse"></output>
+</operation>
 </portType>
 <binding name="WebCompanyPortBinding" type="tns:WebCompany">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
-<operation name="getDepartments">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal"></soap:body>
-</input>
-<output>
-<soap:body use="literal"></soap:body>
-</output>
-</operation>
 <operation name="getDepartment">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -95,6 +86,15 @@
 </output>
 </operation>
 <operation name="getEmployees">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal"></soap:body>
+</input>
+<output>
+<soap:body use="literal"></soap:body>
+</output>
+</operation>
+<operation name="getDepartments">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal"></soap:body>
