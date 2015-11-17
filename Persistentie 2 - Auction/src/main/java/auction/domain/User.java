@@ -1,5 +1,7 @@
 package auction.domain;
+import javax.persistence.*;
 
+@Entity
 public class User {
 
     private String email;
