@@ -5,18 +5,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.persistence.EntityExistsException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
 
 public class UserDAOJPAImpl implements UserDAO {
 
-    private HashMap<String, User> users;
-
-    public UserDAOJPAImpl() {
-        users = new HashMap<String, User>();
+    private final EntityManager em;
+    
+    public UserDAOJPAImpl(EntityManager em) {
+        this.em = em;
     }
 
     @Override
     public int count() {
-        return users.size();
+        Query q = em.createNamedQuery("User.count", User.class);
+        return ((Long) q.getSingleResult()).intValue();
     }
 
     @Override
@@ -24,7 +30,8 @@ public class UserDAOJPAImpl implements UserDAO {
          if (findByEmail(user.getEmail()) != null) {
             throw new EntityExistsException();
         }
-        users.put(user.getEmail(), user);
+         
+        em.persist(user);
     }
 
     @Override
@@ -32,22 +39,31 @@ public class UserDAOJPAImpl implements UserDAO {
         if (findByEmail(user.getEmail()) == null) {
             throw new IllegalArgumentException();
         }
-        users.put(user.getEmail(), user);
+        em.merge(user);
     }
 
 
     @Override
     public List<User> findAll() {
-        return new ArrayList<User>(users.values());
+        CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+        cq.select(cq.from(User.class));
+        return em.createQuery(cq).getResultList();
     }
 
     @Override
     public User findByEmail(String email) {
-        return users.get(email);
+        Query q = em.createNamedQuery("User.findByEmail", User.class);
+        q.setParameter("userEmail", email);
+        if (q.getSingleResult() != null)
+        {
+            User user = (User) q.getSingleResult();
+            return user;
+        }
+        return null;
     }
 
     @Override
     public void remove(User user) {
-        users.remove(user.getEmail());
+        em.remove(em.merge(user));
     }
 }
