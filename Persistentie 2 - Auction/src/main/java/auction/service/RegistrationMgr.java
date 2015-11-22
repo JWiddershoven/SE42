@@ -60,7 +60,7 @@ public class RegistrationMgr {
      */
     public User getUser(String email) {
         EntityManager em = emf.createEntityManager();
-        UserDAO userDAO = new UserDAOJPAImpl(em);
+        UserDAOJPAImpl userDAO = new UserDAOJPAImpl(em);
         User user = null;
         em.getTransaction().begin();
         try

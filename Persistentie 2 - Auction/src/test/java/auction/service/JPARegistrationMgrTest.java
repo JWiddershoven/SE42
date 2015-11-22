@@ -37,7 +37,7 @@ public class JPARegistrationMgrTest {
         
         assertTrue(user1.getEmail().equals("xxx1@yyy"));
         assertTrue(user2.getEmail().equals("xxx2@yyy2"));
-        assertSame(user2bis, user2);
+        assertEquals(user2bis.getEmail(), user2.getEmail());
         //geen @ in het adres
         assertNull(registrationMgr.registerUser("abc"));
     }
