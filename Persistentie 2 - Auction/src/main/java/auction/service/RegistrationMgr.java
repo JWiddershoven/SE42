@@ -11,10 +11,10 @@ import javax.persistence.Persistence;
 
 public class RegistrationMgr {
 
-    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU");
+    private EntityManager em;
 
-    public RegistrationMgr() {
-
+    public RegistrationMgr(EntityManager em) {
+        this.em = em;
     }
 
     /**
@@ -27,7 +27,6 @@ public class RegistrationMgr {
      * onjuist is ( het bevat geen '@'-teken) wordt null teruggegeven.
      */
     public User registerUser(String email) {
-        EntityManager em = emf.createEntityManager();
         UserDAO userDAO = new UserDAOJPAImpl(em);
         User user = null;
 
@@ -59,14 +58,12 @@ public class RegistrationMgr {
      * e-mailadres of null als zo'n User niet bestaat.
      */
     public User getUser(String email) {
-        EntityManager em = emf.createEntityManager();
         UserDAOJPAImpl userDAO = new UserDAOJPAImpl(em);
         User user = null;
         em.getTransaction().begin();
         try
         {
             user = userDAO.findByEmail(email);
-            em.getTransaction().commit();
         }
         catch (Exception e)
         {
@@ -83,7 +80,6 @@ public class RegistrationMgr {
      * @return Een iterator over alle geregistreerde gebruikers
      */
     public List<User> getUsers() {
-        EntityManager em = emf.createEntityManager();
         UserDAO userDAO = new UserDAOJPAImpl(em);
         List<User> users = null;
         em.getTransaction().begin();
