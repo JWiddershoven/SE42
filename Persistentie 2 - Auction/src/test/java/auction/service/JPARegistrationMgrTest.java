@@ -3,7 +3,6 @@ package auction.service;
 import java.util.List;
 import static org.junit.Assert.*;
 
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,32 +11,43 @@ import java.sql.SQLException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import org.junit.After;
 
 public class JPARegistrationMgrTest {
 
     private RegistrationMgr registrationMgr;
+    private EntityManager em;
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU");
 
     @Before
     public void setUp() throws Exception {
-        registrationMgr = new RegistrationMgr();
+        em = emf.createEntityManager();
+        registrationMgr = new RegistrationMgr(em);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        DatabaseCleaner cleaner = new DatabaseCleaner(em);
+        try {
+            cleaner.clean();
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @Test
     public void registerUser() throws SQLException {
-//        EntityManager em = emf.createEntityManager();
-//        DatabaseCleaner cleaner = new DatabaseCleaner(emf.createEntityManager());
-//        cleaner.clean();
-        
+
         User user1 = registrationMgr.registerUser("xxx1@yyy");
-        
+
         User user2 = registrationMgr.registerUser("xxx2@yyy2");
-        
+
         User user2bis = registrationMgr.registerUser("xxx2@yyy2");
-        
+
         assertTrue(user1.getEmail().equals("xxx1@yyy"));
         assertTrue(user2.getEmail().equals("xxx2@yyy2"));
-        assertEquals(user2bis.getEmail(), user2.getEmail());
+        assertSame(user2bis, user2);
         //geen @ in het adres
         assertNull(registrationMgr.registerUser("abc"));
     }
@@ -61,7 +71,6 @@ public class JPARegistrationMgrTest {
         users = registrationMgr.getUsers();
         assertEquals(1, users.size());
         assertSame(users.get(0), user1);
-
 
         User user2 = registrationMgr.registerUser("xxx9@yyy");
         users = registrationMgr.getUsers();

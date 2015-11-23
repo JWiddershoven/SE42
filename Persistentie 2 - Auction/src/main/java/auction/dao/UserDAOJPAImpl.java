@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
@@ -14,8 +16,10 @@ import javax.persistence.criteria.CriteriaQuery;
 public class UserDAOJPAImpl implements UserDAO {
 
     private final EntityManager em;
-    
+    private final EntityTransaction tx;
+
     public UserDAOJPAImpl(EntityManager em) {
+        this.tx = em.getTransaction();
         this.em = em;
     }
 
@@ -27,11 +31,18 @@ public class UserDAOJPAImpl implements UserDAO {
 
     @Override
     public void create(User user) {
-         if (findByEmail(user.getEmail()) != null) {
+        if (findByEmail(user.getEmail()) != null) {
             throw new EntityExistsException();
         }
-         
-        em.persist(user);
+
+        tx.begin();
+        try {
+            em.persist(user);
+            tx.commit();
+        }
+        catch (Exception e) {
+            tx.rollback();
+        }
     }
 
     @Override
@@ -39,9 +50,15 @@ public class UserDAOJPAImpl implements UserDAO {
         if (findByEmail(user.getEmail()) == null) {
             throw new IllegalArgumentException();
         }
-        em.merge(user);
+        tx.begin();
+        try {
+            em.merge(user);
+            tx.commit();
+        }
+        catch (Exception e) {
+            tx.rollback();
+        }
     }
-
 
     @Override
     public List<User> findAll() {
@@ -54,16 +71,24 @@ public class UserDAOJPAImpl implements UserDAO {
     public User findByEmail(String email) {
         Query q = em.createNamedQuery("User.findByEmail", User.class);
         q.setParameter("userEmail", email);
-        if (q.getSingleResult() != null)
-        {
+        try {
             User user = (User) q.getSingleResult();
             return user;
         }
-        return null;
+        catch (NoResultException ex) {
+            return null;
+        }
     }
 
     @Override
     public void remove(User user) {
-        em.remove(em.merge(user));
+        tx.begin();
+        try {
+            em.remove(em.merge(user));
+            tx.commit();
+        }
+        catch (Exception e) {
+            tx.rollback();
+        }
     }
 }

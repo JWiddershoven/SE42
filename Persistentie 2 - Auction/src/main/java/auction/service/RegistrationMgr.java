@@ -28,24 +28,23 @@ public class RegistrationMgr {
      */
     public User registerUser(String email) {
         UserDAO userDAO = new UserDAOJPAImpl(em);
-        User user = null;
 
         if (!email.contains("@")) {
             return null;
         }
 
-        //User user = userDAO.findByEmail(email);
-        user = new User(email);
+        User user = userDAO.findByEmail(email);
+        
+        if (user != null)
+        {
+            return user;
+        }
 
-        em.getTransaction().begin();
+        user = new User(email);
         try {
             userDAO.create(user);
-            em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
         }
 
         return user;
@@ -60,7 +59,6 @@ public class RegistrationMgr {
     public User getUser(String email) {
         UserDAOJPAImpl userDAO = new UserDAOJPAImpl(em);
         User user = null;
-        em.getTransaction().begin();
         try
         {
             user = userDAO.findByEmail(email);
@@ -68,10 +66,6 @@ public class RegistrationMgr {
         catch (Exception e)
         {
             e.printStackTrace();
-            em.getTransaction().rollback();
-        }
-        finally {
-            em.close();
         }
         return user;
     }
@@ -82,19 +76,14 @@ public class RegistrationMgr {
     public List<User> getUsers() {
         UserDAO userDAO = new UserDAOJPAImpl(em);
         List<User> users = null;
-        em.getTransaction().begin();
         try
         {
             users = userDAO.findAll();
-            em.getTransaction().commit();
         }
         catch (Exception e)
         {
             e.printStackTrace();
             em.getTransaction().rollback();
-        }
-        finally {
-            em.close();
         }
         return users;
     }

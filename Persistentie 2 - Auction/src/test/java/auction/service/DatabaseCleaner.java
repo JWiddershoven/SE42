@@ -13,7 +13,7 @@ public class DatabaseCleaner {
     private final EntityManager em;
 
     public DatabaseCleaner(EntityManager entityManager) {
-        em = entityManager;
+        this.em = entityManager;
     }
 
     public void clean() throws SQLException {
