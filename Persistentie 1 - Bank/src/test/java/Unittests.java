@@ -268,9 +268,9 @@ public class Unittests {
         acc = new Account(3L);
         em.getTransaction().begin();
         acc2 = em.merge(acc);
-        //assertTrue(em.contains(acc)); // verklaar AssertionError?
+        assertFalse(em.contains(acc)); // verklaar
         assertTrue(em.contains(acc2)); // verklaar
-        //assertEquals(acc, acc2);  //verklaar Zelfde waardes maar toch anders?
+        assertNotEquals(acc, acc2);  //verklaar
         acc2.setBalance(balance3b);
         acc.setBalance(balance3c);
         em.getTransaction().commit();
