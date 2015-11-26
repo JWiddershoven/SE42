@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: auction.service.SellerMgrTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
-testOfferItem(auction.service.SellerMgrTest)  Time elapsed: 0 sec  <<< ERROR!
+Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.05 sec <<< FAILURE!
+testOfferItem(auction.service.SellerMgrTest)  Time elapsed: 0.016 sec  <<< ERROR!
 java.lang.NullPointerException
-	at auction.service.SellerMgrTest.testOfferItem(SellerMgrTest.java:39)
+	at auction.service.SellerMgrTest.testOfferItem(SellerMgrTest.java:45)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -35,12 +35,12 @@ java.lang.NullPointerException
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-testRevokeItem(auction.service.SellerMgrTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+testRevokeItem(auction.service.SellerMgrTest)  Time elapsed: 0.03 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
 	at org.junit.Assert.assertTrue(Assert.java:52)
-	at auction.service.SellerMgrTest.testRevokeItem(SellerMgrTest.java:59)
+	at auction.service.SellerMgrTest.testRevokeItem(SellerMgrTest.java:65)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

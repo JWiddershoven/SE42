@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
@@ -19,8 +18,8 @@ public class UserDAOJPAImpl implements UserDAO {
     private final EntityTransaction tx;
 
     public UserDAOJPAImpl(EntityManager em) {
-        this.tx = em.getTransaction();
         this.em = em;
+        this.tx = em.getTransaction(); 
     }
 
     @Override

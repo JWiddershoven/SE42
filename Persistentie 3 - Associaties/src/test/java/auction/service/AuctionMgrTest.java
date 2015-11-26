@@ -28,7 +28,7 @@ public class AuctionMgrTest {
     public void setUp() throws Exception {
         em = emf.createEntityManager();
         registrationMgr = new RegistrationMgr(em);
-        auctionMgr = new AuctionMgr();
+        auctionMgr = new AuctionMgr(em);
         sellerMgr = new SellerMgr();
     }
 
