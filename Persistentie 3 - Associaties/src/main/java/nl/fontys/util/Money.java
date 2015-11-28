@@ -2,14 +2,16 @@ package nl.fontys.util;
 
 import java.io.*;
 import java.text.*;
+import javax.persistence.Embeddable;
 
+@Embeddable
 public class Money implements Serializable, Comparable {
 
 	private static final long serialVersionUID = 1L;
 
 	public static final String EURO = "\u20AC";
 
-	private Money() {
+	public Money() {
 		currency="undefined";
 	}
 	

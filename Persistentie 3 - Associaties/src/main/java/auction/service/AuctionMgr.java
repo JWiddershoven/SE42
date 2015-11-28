@@ -65,6 +65,10 @@ public class AuctionMgr {
      */
     public Bid newBid(Item item, User buyer, Money amount) {
         // TODO 
+        if (item.getHighestBid().getAmount().compareTo(amount) == 1)
+        {
+            return item.newBid(buyer, amount);
+        }
         return null;
     }
 }

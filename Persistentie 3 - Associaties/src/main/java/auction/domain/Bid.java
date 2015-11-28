@@ -1,17 +1,21 @@
 package auction.domain;
 
 import java.io.Serializable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import nl.fontys.util.FontysTime;
 import nl.fontys.util.Money;
 
 @Entity
 public class Bid implements Serializable {
 
-    @Id
+    @Embedded
     private FontysTime time;
+    @Id @OneToOne
     private User buyer;
+    @Embedded
     private Money amount;
 
     public Bid() {
@@ -25,14 +29,14 @@ public class Bid implements Serializable {
     }
 
     public FontysTime getTime() {
-        return time;
+        return this.time;
     }
 
     public User getBuyer() {
-        return buyer;
+        return this.buyer;
     }
 
     public Money getAmount() {
-        return amount;
+        return this.amount;
     }
 }

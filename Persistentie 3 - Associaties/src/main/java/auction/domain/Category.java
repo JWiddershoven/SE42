@@ -1,18 +1,22 @@
 package auction.domain;
 
-public class Category {
+import java.io.Serializable;
+import javax.persistence.Embeddable;
 
-    private String description;
+@Embeddable
+public class Category implements Serializable {
 
-    private Category() {
-        description = "undefined";
+    private String catDescription;
+
+    public Category() {
+        this.catDescription = "undefined";
     }
 
     public Category(String description) {
-        this.description = description;
+        this.catDescription = description;
     }
 
     public String getDiscription() {
-        return description;
+        return catDescription;
     }
 }

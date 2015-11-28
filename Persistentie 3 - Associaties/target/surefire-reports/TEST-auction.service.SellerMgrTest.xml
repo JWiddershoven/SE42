@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="1" name="auction.service.SellerMgrTest" time="0.056" errors="1" skipped="0">
+<testsuite tests="2" failures="0" name="auction.service.SellerMgrTest" time="0.403" errors="2" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -61,7 +61,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="auction.service.SellerMgrTest" name="testOfferItem" time="0.016">
+  <testcase classname="auction.service.SellerMgrTest" name="testOfferItem" time="0.324">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at auction.service.SellerMgrTest.testOfferItem(SellerMgrTest.java:45)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -95,20 +95,18 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
-    <system-out>[EL Fine]: sql: 2015-11-26 18:14:17.456--ServerSession(525571)--Connection(846014380)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+    <system-out>[EL Fine]: sql: 2015-11-28 13:46:27.718--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [xx@nl]
-[EL Fine]: sql: 2015-11-26 18:14:17.457--ServerSession(525571)--Connection(846014380)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+[EL Fine]: sql: 2015-11-28 13:46:27.718--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [xx@nl]
-[EL Fine]: sql: 2015-11-26 18:14:17.459--ClientSession(1218864105)--Connection(846014380)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
+[EL Fine]: sql: 2015-11-28 13:46:27.719--ClientSession(1747644505)--Connection(1742633625)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
 	bind =&gt; [xx@nl]
 </system-out>
   </testcase>
-  <testcase classname="auction.service.SellerMgrTest" name="testRevokeItem" time="0.03">
-    <failure type="java.lang.AssertionError">java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:86)
-	at org.junit.Assert.assertTrue(Assert.java:41)
-	at org.junit.Assert.assertTrue(Assert.java:52)
-	at auction.service.SellerMgrTest.testRevokeItem(SellerMgrTest.java:65)
+  <testcase classname="auction.service.SellerMgrTest" name="testRevokeItem" time="0.053">
+    <error type="java.lang.NullPointerException">java.lang.NullPointerException
+	at auction.service.SellerMgr.revokeItem(SellerMgr.java:39)
+	at auction.service.SellerMgrTest.testRevokeItem(SellerMgrTest.java:64)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -139,18 +137,18 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
-</failure>
-    <system-out>[EL Fine]: sql: 2015-11-26 18:14:17.485--ServerSession(525571)--Connection(846014380)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+</error>
+    <system-out>[EL Fine]: sql: 2015-11-28 13:46:28.069--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [sel@nl]
-[EL Fine]: sql: 2015-11-26 18:14:17.486--ServerSession(525571)--Connection(846014380)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+[EL Fine]: sql: 2015-11-28 13:46:28.071--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [sel@nl]
-[EL Fine]: sql: 2015-11-26 18:14:17.486--ClientSession(597623166)--Connection(846014380)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
+[EL Fine]: sql: 2015-11-28 13:46:28.073--ClientSession(1662824745)--Connection(1742633625)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
 	bind =&gt; [sel@nl]
-[EL Fine]: sql: 2015-11-26 18:14:17.503--ServerSession(525571)--Connection(846014380)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+[EL Fine]: sql: 2015-11-28 13:46:28.092--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [buy@nl]
-[EL Fine]: sql: 2015-11-26 18:14:17.504--ServerSession(525571)--Connection(846014380)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+[EL Fine]: sql: 2015-11-28 13:46:28.093--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [buy@nl]
-[EL Fine]: sql: 2015-11-26 18:14:17.504--ClientSession(597623166)--Connection(846014380)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
+[EL Fine]: sql: 2015-11-28 13:46:28.094--ClientSession(1662824745)--Connection(1742633625)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
 	bind =&gt; [buy@nl]
 </system-out>
   </testcase>

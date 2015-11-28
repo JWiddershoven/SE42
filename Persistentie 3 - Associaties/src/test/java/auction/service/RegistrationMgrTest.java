@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import auction.domain.User;
+import java.sql.SQLException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -49,6 +50,7 @@ public class RegistrationMgrTest {
 
     @Test
     public void getUsers() {
+        
         List<User> users = registrationMgr.getUsers();
         assertEquals(0, users.size());
 

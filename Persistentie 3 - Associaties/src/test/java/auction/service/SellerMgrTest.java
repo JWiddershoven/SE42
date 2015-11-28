@@ -29,7 +29,7 @@ public class SellerMgrTest {
         em = emf.createEntityManager();
         registrationMgr = new RegistrationMgr(em);
         auctionMgr = new AuctionMgr(em);
-        sellerMgr = new SellerMgr();
+        sellerMgr = new SellerMgr(em);
     }
 
     /**
