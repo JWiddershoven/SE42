@@ -91,6 +91,7 @@ public class Unittests {
         EntityManager em2 = emf.createEntityManager();
         DatabaseCleaner cleaner = new DatabaseCleaner(em2);
         cleaner.clean();
+        
         Account account = new Account(111L);
         em.getTransaction().begin();
         em.persist(account);
@@ -117,6 +118,7 @@ public class Unittests {
         EntityManager em2 = emf.createEntityManager();
         DatabaseCleaner cleaner = new DatabaseCleaner(em2);
         cleaner.clean();
+        
         Long expected = -100L;
         Account account = new Account(111L);
         account.setId(expected);
@@ -257,6 +259,7 @@ public class Unittests {
         //TODO: doe dit zowel voor de bovenstaande java objecten als voor opnieuw bij de entitymanager opgevraagde objecten met overeenkomstig Id. 
         // HINT: gebruik acccountDAO.findByAccountNr
         acc = DAO.findByAccountNr(acc.getAccountNr());
+        acc9 = DAO.findByAccountNr(acc9.getAccountNr());
         assertEquals(new Long(2), acc.getAccountNr());
         assertEquals(new Long(0), acc.getThreshold());
         assertEquals(new Long(balance2a + balance2a), acc.getBalance());
@@ -280,8 +283,8 @@ public class Unittests {
         assertEquals(balance3c, acc.getBalance());
         //TODO: doe dit zowel voor de bovenstaande java objecten als voor opnieuw bij de entitymanager opgevraagde objecten met overeenkomstig Id.
         acc = em.find(Account.class, acc2.getId());
-        assertEquals(new Long(3), acc2.getAccountNr());
-        assertEquals(balance3b, acc2.getBalance());
+        assertEquals(new Long(3), acc.getAccountNr());
+        assertEquals(balance3b, acc.getBalance());
 
         // scenario 4
         Account account = new Account(114L);
@@ -306,7 +309,7 @@ public class Unittests {
         assertTrue(em2.contains(account2));  //verklaar
         //account2 is managed door em2.
         assertFalse(em2.contains(tweedeAccountObject));  //verklaar
-        //tweedeAccountObject is managed door em2.
+        //tweedeAccountObject is niet managed door em2.
         tweedeAccountObject.setBalance(850l);
         assertEquals((Long) 650L, account.getBalance());  //verklaar
         //account == account2, dus ook zelfde balans.
@@ -363,7 +366,7 @@ public class Unittests {
         //TODO: verklaar bovenstaande asserts
         /*
          Voor de eerste assertEquals wordt acc1 uit de EntityManager verwijderd.
-         In de tweede assertEquals is accFound null, omdat...
+         In de tweede assertEquals is accFound null, omdat acc1 uit de EntityManager is verwijderd.
          */
     }
 
