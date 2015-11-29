@@ -2,8 +2,11 @@ package auction.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -19,14 +22,14 @@ import nl.fontys.util.Money;
 })
 public class Item implements Comparable, Serializable {
 
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
+    @OneToOne (cascade = CascadeType.PERSIST)
     private User seller;
     @Embedded
     private Category category;
     private String description;
-    @OneToOne
+    @OneToOne (cascade = CascadeType.PERSIST)
     private Bid highest;
 
     public Item() {

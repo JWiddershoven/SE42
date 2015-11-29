@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="auction.service.AuctionMgrTest" time="3.319" errors="3" skipped="0">
+<testsuite tests="3" failures="0" name="auction.service.AuctionMgrTest" time="1.741" errors="3" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -14,6 +14,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
+    <property name="test" value="auction.service.AuctionMgrTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="C:\Users\Jelle\Documents\GitHub\SE42\Persistentie 3 - Associaties"/>
     <property name="java.runtime.version" value="1.8.0_60-b27"/>
@@ -44,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_60\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=auction.service.AuctionMgrTest -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,9 +62,9 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="auction.service.AuctionMgrTest" name="newBid" time="0.132">
+  <testcase classname="auction.service.AuctionMgrTest" name="newBid" time="0.04">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at auction.service.AuctionMgr.newBid(AuctionMgr.java:68)
+	at auction.service.AuctionMgr.newBid(AuctionMgr.java:69)
 	at auction.service.AuctionMgrTest.newBid(AuctionMgrTest.java:84)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -96,75 +97,95 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
-    <system-out>[EL Config]: metadata: 2015-11-28 13:46:24.611--ServerSession(141289226)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Bid] is set to [FIELD].
-[EL Config]: metadata: 2015-11-28 13:46:24.64--ServerSession(141289226)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field buyer] is being defaulted to: class auction.domain.User.
-[EL Config]: metadata: 2015-11-28 13:46:24.64--ServerSession(141289226)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Item] is set to [FIELD].
-[EL Config]: metadata: 2015-11-28 13:46:24.641--ServerSession(141289226)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field seller] is being defaulted to: class auction.domain.User.
-[EL Config]: metadata: 2015-11-28 13:46:24.641--ServerSession(141289226)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field highest] is being defaulted to: class auction.domain.Bid.
-[EL Config]: metadata: 2015-11-28 13:46:24.647--ServerSession(141289226)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.User] is set to [FIELD].
-[EL Config]: metadata: 2015-11-28 13:46:24.647--ServerSession(141289226)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.Money] is set to [FIELD].
-[EL Config]: metadata: 2015-11-28 13:46:24.648--ServerSession(141289226)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.FontysTime] is set to [FIELD].
-[EL Config]: metadata: 2015-11-28 13:46:24.648--ServerSession(141289226)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Category] is set to [FIELD].
-[EL Config]: metadata: 2015-11-28 13:46:24.648--ServerSession(141289226)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Bid] is being defaulted to: Bid.
-[EL Config]: metadata: 2015-11-28 13:46:24.649--ServerSession(141289226)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Bid] is being defaulted to: BID.
-[EL Config]: metadata: 2015-11-28 13:46:24.661--ServerSession(141289226)--Thread(Thread[main,5,main])--The column name for element [cents] is being defaulted to: CENTS.
-[EL Config]: metadata: 2015-11-28 13:46:24.662--ServerSession(141289226)--Thread(Thread[main,5,main])--The column name for element [currency] is being defaulted to: CURRENCY.
-[EL Config]: metadata: 2015-11-28 13:46:24.662--ServerSession(141289226)--Thread(Thread[main,5,main])--The column name for element [seconds] is being defaulted to: SECONDS.
-[EL Config]: metadata: 2015-11-28 13:46:24.662--ServerSession(141289226)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Item] is being defaulted to: Item.
-[EL Config]: metadata: 2015-11-28 13:46:24.662--ServerSession(141289226)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Item] is being defaulted to: ITEM.
-[EL Config]: metadata: 2015-11-28 13:46:24.664--ServerSession(141289226)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
-[EL Config]: metadata: 2015-11-28 13:46:24.664--ServerSession(141289226)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2015-11-28 13:46:24.665--ServerSession(141289226)--Thread(Thread[main,5,main])--The column name for element [catDescription] is being defaulted to: CATDESCRIPTION.
-[EL Config]: metadata: 2015-11-28 13:46:24.666--ServerSession(141289226)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.User] is being defaulted to: User.
-[EL Config]: metadata: 2015-11-28 13:46:24.666--ServerSession(141289226)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.User] is being defaulted to: USER.
-[EL Config]: metadata: 2015-11-28 13:46:24.667--ServerSession(141289226)--Thread(Thread[main,5,main])--The column name for element [email] is being defaulted to: EMAIL.
-[EL Config]: metadata: 2015-11-28 13:46:24.676--ServerSession(141289226)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field buyer] is being defaulted to: EMAIL.
-[EL Config]: metadata: 2015-11-28 13:46:24.677--ServerSession(141289226)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [buyer] is being defaulted to: BUYER_EMAIL.
-[EL Config]: metadata: 2015-11-28 13:46:24.677--ServerSession(141289226)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field seller] is being defaulted to: EMAIL.
-[EL Config]: metadata: 2015-11-28 13:46:24.677--ServerSession(141289226)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [seller] is being defaulted to: SELLER_EMAIL.
-[EL Config]: metadata: 2015-11-28 13:46:24.677--ServerSession(141289226)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field highest] is being defaulted to: BUYER_EMAIL.
-[EL Config]: metadata: 2015-11-28 13:46:24.678--ServerSession(141289226)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [highest] is being defaulted to: HIGHEST_BUYER_EMAIL.
-[EL Info]: 2015-11-28 13:46:25.13--ServerSession(141289226)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd
-[EL Fine]: connection: 2015-11-28 13:46:25.343--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.MySQLPlatform
-[EL Config]: connection: 2015-11-28 13:46:25.352--ServerSession(141289226)--Connection(923539816)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+    <system-out>[EL Config]: metadata: 2015-11-29 17:50:27.223--ServerSession(798244209)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Bid] is set to [FIELD].
+[EL Config]: metadata: 2015-11-29 17:50:27.241--ServerSession(798244209)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field buyer] is being defaulted to: class auction.domain.User.
+[EL Config]: metadata: 2015-11-29 17:50:27.241--ServerSession(798244209)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Item] is set to [FIELD].
+[EL Config]: metadata: 2015-11-29 17:50:27.242--ServerSession(798244209)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field seller] is being defaulted to: class auction.domain.User.
+[EL Config]: metadata: 2015-11-29 17:50:27.242--ServerSession(798244209)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field highest] is being defaulted to: class auction.domain.Bid.
+[EL Config]: metadata: 2015-11-29 17:50:27.247--ServerSession(798244209)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.User] is set to [FIELD].
+[EL Config]: metadata: 2015-11-29 17:50:27.247--ServerSession(798244209)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.Money] is set to [FIELD].
+[EL Config]: metadata: 2015-11-29 17:50:27.248--ServerSession(798244209)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.FontysTime] is set to [FIELD].
+[EL Config]: metadata: 2015-11-29 17:50:27.248--ServerSession(798244209)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Category] is set to [FIELD].
+[EL Config]: metadata: 2015-11-29 17:50:27.248--ServerSession(798244209)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Bid] is being defaulted to: Bid.
+[EL Config]: metadata: 2015-11-29 17:50:27.25--ServerSession(798244209)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Bid] is being defaulted to: BID.
+[EL Config]: metadata: 2015-11-29 17:50:27.261--ServerSession(798244209)--Thread(Thread[main,5,main])--The column name for element [cents] is being defaulted to: CENTS.
+[EL Config]: metadata: 2015-11-29 17:50:27.262--ServerSession(798244209)--Thread(Thread[main,5,main])--The column name for element [currency] is being defaulted to: CURRENCY.
+[EL Config]: metadata: 2015-11-29 17:50:27.262--ServerSession(798244209)--Thread(Thread[main,5,main])--The column name for element [seconds] is being defaulted to: SECONDS.
+[EL Config]: metadata: 2015-11-29 17:50:27.262--ServerSession(798244209)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Item] is being defaulted to: Item.
+[EL Config]: metadata: 2015-11-29 17:50:27.262--ServerSession(798244209)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Item] is being defaulted to: ITEM.
+[EL Config]: metadata: 2015-11-29 17:50:27.263--ServerSession(798244209)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
+[EL Config]: metadata: 2015-11-29 17:50:27.264--ServerSession(798244209)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2015-11-29 17:50:27.264--ServerSession(798244209)--Thread(Thread[main,5,main])--The column name for element [catDescription] is being defaulted to: CATDESCRIPTION.
+[EL Config]: metadata: 2015-11-29 17:50:27.265--ServerSession(798244209)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.User] is being defaulted to: User.
+[EL Config]: metadata: 2015-11-29 17:50:27.265--ServerSession(798244209)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.User] is being defaulted to: USER.
+[EL Config]: metadata: 2015-11-29 17:50:27.265--ServerSession(798244209)--Thread(Thread[main,5,main])--The column name for element [email] is being defaulted to: EMAIL.
+[EL Config]: metadata: 2015-11-29 17:50:27.273--ServerSession(798244209)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field buyer] is being defaulted to: EMAIL.
+[EL Config]: metadata: 2015-11-29 17:50:27.273--ServerSession(798244209)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [buyer] is being defaulted to: BUYER_EMAIL.
+[EL Config]: metadata: 2015-11-29 17:50:27.275--ServerSession(798244209)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field seller] is being defaulted to: EMAIL.
+[EL Config]: metadata: 2015-11-29 17:50:27.275--ServerSession(798244209)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [seller] is being defaulted to: SELLER_EMAIL.
+[EL Config]: metadata: 2015-11-29 17:50:27.275--ServerSession(798244209)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field highest] is being defaulted to: BUYER_EMAIL.
+[EL Config]: metadata: 2015-11-29 17:50:27.276--ServerSession(798244209)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [highest] is being defaulted to: HIGHEST_BUYER_EMAIL.
+[EL Info]: 2015-11-29 17:50:27.694--ServerSession(798244209)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd
+[EL Fine]: connection: 2015-11-29 17:50:27.877--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.MySQLPlatform
+[EL Config]: connection: 2015-11-29 17:50:27.885--ServerSession(798244209)--Connection(1988062951)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
 	platform=&gt;MySQLPlatform
 	user name=&gt; &quot;root&quot;
 	datasource URL=&gt; &quot;jdbc:mysql://localhost:3306/veiling&quot;
 ))
-[EL Config]: connection: 2015-11-28 13:46:25.356--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://localhost:3306/veiling
+[EL Config]: connection: 2015-11-29 17:50:27.889--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://localhost:3306/veiling
 	User: root@localhost
 	Database: MySQL  Version: 5.6.26
 	Driver: MySQL Connector Java  Version: mysql-connector-java-5.1.37 ( Revision: 09940f05b4c98150f352e787a2549f11a2e9da93 )
-[EL Info]: connection: 2015-11-28 13:46:25.475--ServerSession(141289226)--Thread(Thread[main,5,main])--file:/C:/Users/Jelle/Documents/GitHub/SE42/Persistentie 3 - Associaties/target/classes/_nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU login successful
-[EL Fine]: sql: 2015-11-28 13:46:25.544--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--CREATE TABLE USER (EMAIL VARCHAR(255) NOT NULL, PRIMARY KEY (EMAIL))
-[EL Fine]: sql: 2015-11-28 13:46:25.693--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--CREATE TABLE ITEM (ID BIGINT NOT NULL, DESCRIPTION VARCHAR(255), CATDESCRIPTION VARCHAR(255), HIGHEST_BUYER_EMAIL VARCHAR(255), SELLER_EMAIL VARCHAR(255), PRIMARY KEY (ID))
-[EL Fine]: sql: 2015-11-28 13:46:25.86--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--CREATE TABLE BID (CENTS BIGINT, CURRENCY VARCHAR(255), SECONDS BIGINT, BUYER_EMAIL VARCHAR(255) NOT NULL, PRIMARY KEY (BUYER_EMAIL))
-[EL Fine]: sql: 2015-11-28 13:46:26.002--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--ALTER TABLE ITEM ADD CONSTRAINT FK_ITEM_SELLER_EMAIL FOREIGN KEY (SELLER_EMAIL) REFERENCES USER (EMAIL)
-[EL Fine]: sql: 2015-11-28 13:46:26.424--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--ALTER TABLE ITEM ADD CONSTRAINT FK_ITEM_HIGHEST_BUYER_EMAIL FOREIGN KEY (HIGHEST_BUYER_EMAIL) REFERENCES BID (BUYER_EMAIL)
-[EL Fine]: sql: 2015-11-28 13:46:26.898--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--ALTER TABLE BID ADD CONSTRAINT FK_BID_BUYER_EMAIL FOREIGN KEY (BUYER_EMAIL) REFERENCES USER (EMAIL)
-[EL Fine]: sql: 2015-11-28 13:46:27.321--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+[EL Info]: connection: 2015-11-29 17:50:27.986--ServerSession(798244209)--Thread(Thread[main,5,main])--file:/C:/Users/Jelle/Documents/GitHub/SE42/Persistentie 3 - Associaties/target/classes/_nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU login successful
+[EL Fine]: sql: 2015-11-29 17:50:28.042--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT * FROM SEQUENCE WHERE SEQ_NAME = SEQ_GEN
+[EL Fine]: sql: 2015-11-29 17:50:28.077--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [ss2@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.326--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
-	bind =&gt; [ss2@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.332--ClientSession(742473724)--Connection(1742633625)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
-	bind =&gt; [ss2@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.354--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+[EL Fine]: sql: 2015-11-29 17:50:28.08--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [bb@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.356--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
-	bind =&gt; [bb@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.357--ClientSession(742473724)--Connection(1742633625)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
-	bind =&gt; [bb@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.389--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+[EL Fine]: sql: 2015-11-29 17:50:28.08--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [bb2@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.389--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
-	bind =&gt; [bb2@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.391--ClientSession(742473724)--Connection(1742633625)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
-	bind =&gt; [bb2@nl]
+[EL Fine]: sql: 2015-11-29 17:50:28.082--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT ID, DESCRIPTION, CATDESCRIPTION, HIGHEST_BUYER_EMAIL, SELLER_EMAIL FROM ITEM WHERE (DESCRIPTION = ?)
+	bind =&gt; [omsch_bb]
 </system-out>
+    <system-err>javax.persistence.EntityExistsException
+	at auction.dao.ItemDAOJPAImpl.create(ItemDAOJPAImpl.java:41)
+	at auction.service.SellerMgr.offerItem(SellerMgr.java:31)
+	at auction.service.AuctionMgrTest.newBid(AuctionMgrTest.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</system-err>
   </testcase>
-  <testcase classname="auction.service.AuctionMgrTest" name="getItem" time="0.023">
+  <testcase classname="auction.service.AuctionMgrTest" name="getItem" time="0.489">
     <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at auction.service.AuctionMgrTest.getItem(AuctionMgrTest.java:44)
+	at auction.service.AuctionMgrTest.getItem(AuctionMgrTest.java:45)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -196,15 +217,50 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
-    <system-out>[EL Fine]: sql: 2015-11-28 13:46:27.429--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+    <system-out>[EL Fine]: sql: 2015-11-29 17:50:28.095--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [xx2@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.431--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
-	bind =&gt; [xx2@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.433--ClientSession(785340693)--Connection(1742633625)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
-	bind =&gt; [xx2@nl]
+[EL Fine]: sql: 2015-11-29 17:50:28.097--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT ID, DESCRIPTION, CATDESCRIPTION, HIGHEST_BUYER_EMAIL, SELLER_EMAIL FROM ITEM WHERE (DESCRIPTION = ?)
+	bind =&gt; [omsch]
+[EL Fine]: sql: 2015-11-29 17:50:28.099--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT ID, DESCRIPTION, CATDESCRIPTION, HIGHEST_BUYER_EMAIL, SELLER_EMAIL FROM ITEM WHERE (ID = ?)
+	bind =&gt; [null]
 </system-out>
+    <system-err>javax.persistence.EntityExistsException
+	at auction.dao.ItemDAOJPAImpl.create(ItemDAOJPAImpl.java:41)
+	at auction.service.SellerMgr.offerItem(SellerMgr.java:31)
+	at auction.service.AuctionMgrTest.getItem(AuctionMgrTest.java:43)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</system-err>
   </testcase>
-  <testcase classname="auction.service.AuctionMgrTest" name="findItemByDescription" time="0.035">
+  <testcase classname="auction.service.AuctionMgrTest" name="findItemByDescription" time="0.008">
     <error message="java.util.Vector cannot be cast to java.util.ArrayList" type="java.lang.ClassCastException">java.lang.ClassCastException: java.util.Vector cannot be cast to java.util.ArrayList
 	at auction.service.AuctionMgrTest.findItemByDescription(AuctionMgrTest.java:62)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -238,20 +294,85 @@
 	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
 </error>
-    <system-out>[EL Fine]: sql: 2015-11-28 13:46:27.457--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+    <system-out>[EL Fine]: sql: 2015-11-29 17:50:28.107--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [xx3@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.458--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
-	bind =&gt; [xx3@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.459--ClientSession(1810790719)--Connection(1742633625)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
-	bind =&gt; [xx3@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.473--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+[EL Fine]: sql: 2015-11-29 17:50:28.108--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
 	bind =&gt; [xx4@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.474--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
-	bind =&gt; [xx4@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.475--ClientSession(1810790719)--Connection(1742633625)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
-	bind =&gt; [xx4@nl]
-[EL Fine]: sql: 2015-11-28 13:46:27.487--ServerSession(141289226)--Connection(1742633625)--Thread(Thread[main,5,main])--SELECT ID, DESCRIPTION, CATDESCRIPTION, HIGHEST_BUYER_EMAIL, SELLER_EMAIL FROM ITEM WHERE (DESCRIPTION = ?)
+[EL Fine]: sql: 2015-11-29 17:50:28.109--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT ID, DESCRIPTION, CATDESCRIPTION, HIGHEST_BUYER_EMAIL, SELLER_EMAIL FROM ITEM WHERE (DESCRIPTION = ?)
+	bind =&gt; [omsch4]
+[EL Fine]: sql: 2015-11-29 17:50:28.112--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT ID, DESCRIPTION, CATDESCRIPTION, HIGHEST_BUYER_EMAIL, SELLER_EMAIL FROM ITEM WHERE (DESCRIPTION = ?)
+	bind =&gt; [omsch4]
+[EL Fine]: sql: 2015-11-29 17:50:28.115--ServerSession(798244209)--Connection(839259983)--Thread(Thread[main,5,main])--SELECT ID, DESCRIPTION, CATDESCRIPTION, HIGHEST_BUYER_EMAIL, SELLER_EMAIL FROM ITEM WHERE (DESCRIPTION = ?)
 	bind =&gt; [omsch2]
 </system-out>
+    <system-err>javax.persistence.EntityExistsException
+	at auction.dao.ItemDAOJPAImpl.create(ItemDAOJPAImpl.java:41)
+	at auction.service.SellerMgr.offerItem(SellerMgr.java:31)
+	at auction.service.AuctionMgrTest.findItemByDescription(AuctionMgrTest.java:59)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+javax.persistence.EntityExistsException
+	at auction.dao.ItemDAOJPAImpl.create(ItemDAOJPAImpl.java:41)
+	at auction.service.SellerMgr.offerItem(SellerMgr.java:31)
+	at auction.service.AuctionMgrTest.findItemByDescription(AuctionMgrTest.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</system-err>
   </testcase>
 </testsuite>

@@ -24,8 +24,18 @@ public class SellerMgr {
      */
     public Item offerItem(User seller, Category cat, String description) {
         // TODO 
+        ItemDAO itemDAO = new ItemDAOJPAImpl(em);
+        Item newItem = new Item(seller, cat, description);
+        try
+        {
+            itemDAO.create(newItem);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
         
-        return null;
+        return newItem;
     }
     
      /**

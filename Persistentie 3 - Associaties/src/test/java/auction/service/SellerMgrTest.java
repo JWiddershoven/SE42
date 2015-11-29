@@ -12,9 +12,11 @@ import org.junit.Test;
 import auction.domain.Category;
 import auction.domain.Item;
 import auction.domain.User;
+import java.sql.SQLException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import org.junit.After;
 
 public class SellerMgrTest {
 
@@ -30,6 +32,17 @@ public class SellerMgrTest {
         registrationMgr = new RegistrationMgr(em);
         auctionMgr = new AuctionMgr(em);
         sellerMgr = new SellerMgr(em);
+    }
+    
+    @After
+    public void tearDown() throws Exception {
+        DatabaseCleaner cleaner = new DatabaseCleaner(em);
+        try {
+            cleaner.clean();
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**

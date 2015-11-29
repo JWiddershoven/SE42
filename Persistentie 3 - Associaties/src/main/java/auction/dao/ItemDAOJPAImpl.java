@@ -37,7 +37,7 @@ public class ItemDAOJPAImpl implements ItemDAO {
 
     @Override
     public void create(Item item) {
-        if (findByDescription(item.getDescription()) != null) {
+        if (!findByDescription(item.getDescription()).isEmpty()) {
             throw new EntityExistsException();
         }
 
@@ -52,7 +52,7 @@ public class ItemDAOJPAImpl implements ItemDAO {
 
     @Override
     public void edit(Item item) {
-        if (findByDescription(item.getDescription()) == null) {
+        if (!findByDescription(item.getDescription()).isEmpty()) {
             throw new IllegalArgumentException();
         }
 
@@ -89,8 +89,9 @@ public class ItemDAOJPAImpl implements ItemDAO {
         Query q = em.createNamedQuery("Item.findByDescription", Item.class);
         q.setParameter("description", description);
         try {
-            List<Item> items = q.getResultList();
+            List<Item> items = q.getResultList();           
             return items;
+            
         } catch (NoResultException ex) {
             return null;
         }

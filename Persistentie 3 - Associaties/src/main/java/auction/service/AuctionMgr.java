@@ -47,6 +47,7 @@ public class AuctionMgr {
         // TODO
         ItemDAO itemDAO = new ItemDAOJPAImpl(em);
         List<Item> items = new ArrayList<>();
+        
         try {
             items = itemDAO.findByDescription(description);
         } catch (Exception e) {
