@@ -14,7 +14,7 @@ public class Bid implements Serializable {
 
     @Embedded
     private FontysTime time;
-    @Id @OneToOne(cascade = CascadeType.PERSIST)
+    @Id @OneToOne
     private User buyer;
     @Embedded
     private Money amount;

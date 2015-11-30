@@ -13,6 +13,7 @@ import auction.domain.Item;
 import auction.domain.User;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -72,10 +73,10 @@ public class AuctionMgrTest {
         Item item1 = sellerMgr.offerItem(seller3, cat, omsch);
         Item item2 = sellerMgr.offerItem(seller4, cat, omsch);
 
-        ArrayList<Item> res = (ArrayList<Item>) auctionMgr.findItemByDescription(omsch2);
+        List<Item> res = (List<Item>) auctionMgr.findItemByDescription(omsch2);
         assertEquals(0, res.size());
 
-        res = (ArrayList<Item>) auctionMgr.findItemByDescription(omsch);
+        res = (List<Item>) auctionMgr.findItemByDescription(omsch);
         assertEquals(2, res.size());
 
     }

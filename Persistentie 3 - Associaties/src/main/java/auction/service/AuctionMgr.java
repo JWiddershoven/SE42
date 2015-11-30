@@ -46,15 +46,7 @@ public class AuctionMgr {
     public List<Item> findItemByDescription(String description) {
         // TODO
         ItemDAO itemDAO = new ItemDAOJPAImpl(em);
-        List<Item> items = new ArrayList<>();
-        
-        try {
-            items = itemDAO.findByDescription(description);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return items;
+        return itemDAO.findByDescription(description);
     }
 
     /**
@@ -66,10 +58,14 @@ public class AuctionMgr {
      */
     public Bid newBid(Item item, User buyer, Money amount) {
         // TODO 
-        if (item.getHighestBid().getAmount().compareTo(amount) == 1)
+        ItemDAO itemDAO = new ItemDAOJPAImpl(em);
+        if (item.getHighestBid() == null || item.getHighestBid().getAmount().compareTo(amount) < 0)
         {
-            return item.newBid(buyer, amount);
+            Bid newBid = item.newBid(buyer, amount);
+            itemDAO.edit(item);
+            return newBid;
         }
+        
         return null;
     }
 }

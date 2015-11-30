@@ -22,14 +22,15 @@ import nl.fontys.util.Money;
 })
 public class Item implements Comparable, Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne (cascade = CascadeType.PERSIST)
+    @OneToOne
     private User seller;
     @Embedded
     private Category category;
     private String description;
-    @OneToOne (cascade = CascadeType.PERSIST)
+    @OneToOne
     private Bid highest;
 
     public Item() {

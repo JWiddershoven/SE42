@@ -6,6 +6,7 @@
 package auction.dao;
 
 import auction.domain.Item;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import javax.persistence.EntityExistsException;
@@ -37,7 +38,7 @@ public class ItemDAOJPAImpl implements ItemDAO {
 
     @Override
     public void create(Item item) {
-        if (!findByDescription(item.getDescription()).isEmpty()) {
+        if (find(item.getId()) != null) {
             throw new EntityExistsException();
         }
 
@@ -52,7 +53,7 @@ public class ItemDAOJPAImpl implements ItemDAO {
 
     @Override
     public void edit(Item item) {
-        if (!findByDescription(item.getDescription()).isEmpty()) {
+        if (find(item.getId()) == null) {
             throw new IllegalArgumentException();
         }
 
@@ -89,8 +90,7 @@ public class ItemDAOJPAImpl implements ItemDAO {
         Query q = em.createNamedQuery("Item.findByDescription", Item.class);
         q.setParameter("description", description);
         try {
-            List<Item> items = q.getResultList();           
-            return items;
+            return (List<Item>) q.getResultList();           
             
         } catch (NoResultException ex) {
             return null;

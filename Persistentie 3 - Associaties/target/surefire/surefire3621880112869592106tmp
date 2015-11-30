@@ -1,8 +1,0 @@
-#surefire
-#Sun Nov 29 17:51:35 CET 2015
-maven.ext.class.path=C\:\\Program Files\\NetBeans 8.0.2\\java\\maven-nblib\\netbeans-eventspy.jar
-user.dir=C\:\\Users\\Jelle\\Documents\\GitHub\\SE42\\Persistentie 3 - Associaties
-file.encoding=UTF-8
-localRepository=C\:\\Users\\Jelle\\.m2\\repository
-basedir=C\:\\Users\\Jelle\\Documents\\GitHub\\SE42\\Persistentie 3 - Associaties
-test=auction.service.AuctionMgrTest
