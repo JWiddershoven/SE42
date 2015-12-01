@@ -80,7 +80,7 @@ public class Item implements Comparable, Serializable {
     @Override
     public boolean equals(Object o) {
         //TODO
-        if (this == o) return true;
+        if (o == null) return false;
         if (!(o instanceof Item)) return false;
         Item item2 = (Item) o;
         return Objects.equals(this.id, item2.getId()) && Objects.equals(this.getDescription(), item2.getDescription());
