@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="2" failures="2" name="auction.service.ItemsFromSellerTest" time="1.568" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
+    <property name="java.vm.version" value="25.60-b23"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="test" value="auction.service.ItemsFromSellerTest"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\Jelle\Documents\GitHub\SE42\Persistentie 4 - Bidirectioneel"/>
+    <property name="java.runtime.version" value="1.8.0_60-b27"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_60\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\Jelle\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.0.2\java\maven\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_60\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\Skype\Phone\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="user.home" value="C:\Users\Jelle"/>
+    <property name="user.timezone" value="Europe/Berlin"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="Jelle"/>
+    <property name="java.class.path" value="C:\Program Files\NetBeans 8.0.2\java\maven\boot\plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_60\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=auction.service.ItemsFromSellerTest -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_60"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_60\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_60\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_60\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Program Files\NetBeans 8.0.2\java\maven"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="auction.service.ItemsFromSellerTest" name="numberOfOfferdItems" time="0.282">
+    <failure message="expected:&lt;1&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;1&gt; but was:&lt;0&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at auction.service.ItemsFromSellerTest.numberOfOfferdItems(ItemsFromSellerTest.java:60)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</failure>
+    <system-out>[EL Config]: metadata: 2015-12-05 17:49:01.397--ServerSession(525571)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Bid] is set to [FIELD].
+[EL Config]: metadata: 2015-12-05 17:49:01.415--ServerSession(525571)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field buyer] is being defaulted to: class auction.domain.User.
+[EL Config]: metadata: 2015-12-05 17:49:01.416--ServerSession(525571)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Item] is set to [FIELD].
+[EL Config]: metadata: 2015-12-05 17:49:01.416--ServerSession(525571)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field seller] is being defaulted to: class auction.domain.User.
+[EL Config]: metadata: 2015-12-05 17:49:01.416--ServerSession(525571)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field highest] is being defaulted to: class auction.domain.Bid.
+[EL Config]: metadata: 2015-12-05 17:49:01.422--ServerSession(525571)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.User] is set to [FIELD].
+[EL Config]: metadata: 2015-12-05 17:49:01.425--ServerSession(525571)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field offeredItems] is being defaulted to: class auction.domain.Item.
+[EL Config]: metadata: 2015-12-05 17:49:01.426--ServerSession(525571)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.Money] is set to [FIELD].
+[EL Config]: metadata: 2015-12-05 17:49:01.426--ServerSession(525571)--Thread(Thread[main,5,main])--The access type for the persistent class [class nl.fontys.util.FontysTime] is set to [FIELD].
+[EL Config]: metadata: 2015-12-05 17:49:01.426--ServerSession(525571)--Thread(Thread[main,5,main])--The access type for the persistent class [class auction.domain.Category] is set to [FIELD].
+[EL Config]: metadata: 2015-12-05 17:49:01.428--ServerSession(525571)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Bid] is being defaulted to: Bid.
+[EL Config]: metadata: 2015-12-05 17:49:01.429--ServerSession(525571)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Bid] is being defaulted to: BID.
+[EL Config]: metadata: 2015-12-05 17:49:01.44--ServerSession(525571)--Thread(Thread[main,5,main])--The column name for element [cents] is being defaulted to: CENTS.
+[EL Config]: metadata: 2015-12-05 17:49:01.441--ServerSession(525571)--Thread(Thread[main,5,main])--The column name for element [currency] is being defaulted to: CURRENCY.
+[EL Config]: metadata: 2015-12-05 17:49:01.441--ServerSession(525571)--Thread(Thread[main,5,main])--The column name for element [seconds] is being defaulted to: SECONDS.
+[EL Config]: metadata: 2015-12-05 17:49:01.441--ServerSession(525571)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.Item] is being defaulted to: Item.
+[EL Config]: metadata: 2015-12-05 17:49:01.442--ServerSession(525571)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.Item] is being defaulted to: ITEM.
+[EL Config]: metadata: 2015-12-05 17:49:01.443--ServerSession(525571)--Thread(Thread[main,5,main])--The column name for element [description] is being defaulted to: DESCRIPTION.
+[EL Config]: metadata: 2015-12-05 17:49:01.443--ServerSession(525571)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2015-12-05 17:49:01.444--ServerSession(525571)--Thread(Thread[main,5,main])--The column name for element [catDescription] is being defaulted to: CATDESCRIPTION.
+[EL Config]: metadata: 2015-12-05 17:49:01.444--ServerSession(525571)--Thread(Thread[main,5,main])--The alias name for the entity class [class auction.domain.User] is being defaulted to: User.
+[EL Config]: metadata: 2015-12-05 17:49:01.444--ServerSession(525571)--Thread(Thread[main,5,main])--The table name for entity [class auction.domain.User] is being defaulted to: USER.
+[EL Config]: metadata: 2015-12-05 17:49:01.445--ServerSession(525571)--Thread(Thread[main,5,main])--The column name for element [email] is being defaulted to: EMAIL.
+[EL Config]: metadata: 2015-12-05 17:49:01.454--ServerSession(525571)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field buyer] is being defaulted to: EMAIL.
+[EL Config]: metadata: 2015-12-05 17:49:01.454--ServerSession(525571)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [buyer] is being defaulted to: BUYER_EMAIL.
+[EL Config]: metadata: 2015-12-05 17:49:01.455--ServerSession(525571)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field seller] is being defaulted to: EMAIL.
+[EL Config]: metadata: 2015-12-05 17:49:01.456--ServerSession(525571)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [seller] is being defaulted to: SELLER_EMAIL.
+[EL Config]: metadata: 2015-12-05 17:49:01.456--ServerSession(525571)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field highest] is being defaulted to: BUYER_EMAIL.
+[EL Config]: metadata: 2015-12-05 17:49:01.456--ServerSession(525571)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [highest] is being defaulted to: HIGHEST_BUYER_EMAIL.
+[EL Info]: 2015-12-05 17:49:01.9--ServerSession(525571)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.5.2.v20140319-9ad6abd
+[EL Fine]: connection: 2015-12-05 17:49:02.095--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.MySQLPlatform
+[EL Config]: connection: 2015-12-05 17:49:02.103--ServerSession(525571)--Connection(1195403585)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+	platform=&gt;MySQLPlatform
+	user name=&gt; &quot;root&quot;
+	datasource URL=&gt; &quot;jdbc:mysql://localhost:3306/veiling&quot;
+))
+[EL Config]: connection: 2015-12-05 17:49:02.107--ServerSession(525571)--Connection(1148735023)--Thread(Thread[main,5,main])--Connected: jdbc:mysql://localhost:3306/veiling
+	User: root@localhost
+	Database: MySQL  Version: 5.6.26
+	Driver: MySQL Connector Java  Version: mysql-connector-java-5.1.37 ( Revision: 09940f05b4c98150f352e787a2549f11a2e9da93 )
+[EL Info]: connection: 2015-12-05 17:49:02.199--ServerSession(525571)--Thread(Thread[main,5,main])--file:/C:/Users/Jelle/Documents/GitHub/SE42/Persistentie 4 - Bidirectioneel/target/classes/_nl.fhict.se42_auction_jar_1.0-SNAPSHOTPU login successful
+[EL Fine]: sql: 2015-12-05 17:49:02.289--ServerSession(525571)--Connection(1148735023)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+	bind =&gt; [ifu1@nl]
+[EL Fine]: sql: 2015-12-05 17:49:02.292--ServerSession(525571)--Connection(1148735023)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+	bind =&gt; [ifu1@nl]
+[EL Fine]: sql: 2015-12-05 17:49:02.299--ClientSession(584694804)--Connection(1148735023)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
+	bind =&gt; [ifu1@nl]
+[EL Fine]: sql: 2015-12-05 17:49:02.45--ServerSession(525571)--Connection(1148735023)--Thread(Thread[main,5,main])--SELECT ID, DESCRIPTION, CATDESCRIPTION, SELLER_EMAIL, HIGHEST_BUYER_EMAIL FROM ITEM WHERE (ID = ?)
+	bind =&gt; [null]
+[EL Fine]: sql: 2015-12-05 17:49:02.453--ClientSession(584694804)--Connection(1148735023)--Thread(Thread[main,5,main])--INSERT INTO ITEM (DESCRIPTION, CATDESCRIPTION, SELLER_EMAIL, HIGHEST_BUYER_EMAIL) VALUES (?, ?, ?, ?)
+	bind =&gt; [omsch_ifu1, cat2, ifu1@nl, null]
+[EL Fine]: sql: 2015-12-05 17:49:02.491--ClientSession(584694804)--Connection(1148735023)--Thread(Thread[main,5,main])--SELECT LAST_INSERT_ID()
+[EL Fine]: sql: 2015-12-05 17:49:02.522--ClientSession(584694804)--Connection(1148735023)--Thread(Thread[main,5,main])--DELETE FROM ITEM
+[EL Fine]: sql: 2015-12-05 17:49:02.525--ClientSession(584694804)--Connection(1148735023)--Thread(Thread[main,5,main])--DELETE FROM BID
+[EL Fine]: sql: 2015-12-05 17:49:02.526--ClientSession(584694804)--Connection(1148735023)--Thread(Thread[main,5,main])--DELETE FROM USER
+</system-out>
+  </testcase>
+  <testcase classname="auction.service.ItemsFromSellerTest" name="getItemsFromSeller" time="0.047">
+    <failure type="java.lang.AssertionError">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at auction.service.ItemsFromSellerTest.getItemsFromSeller(ItemsFromSellerTest.java:108)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</failure>
+    <system-out>[EL Fine]: sql: 2015-12-05 17:49:02.557--ServerSession(525571)--Connection(1148735023)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+	bind =&gt; [ifu1@nl]
+[EL Fine]: sql: 2015-12-05 17:49:02.558--ServerSession(525571)--Connection(1148735023)--Thread(Thread[main,5,main])--SELECT EMAIL FROM USER WHERE (EMAIL = ?)
+	bind =&gt; [ifu1@nl]
+[EL Fine]: sql: 2015-12-05 17:49:02.559--ClientSession(1013728905)--Connection(1148735023)--Thread(Thread[main,5,main])--INSERT INTO USER (EMAIL) VALUES (?)
+	bind =&gt; [ifu1@nl]
+[EL Fine]: sql: 2015-12-05 17:49:02.57--ServerSession(525571)--Connection(1148735023)--Thread(Thread[main,5,main])--SELECT ID, DESCRIPTION, CATDESCRIPTION, SELLER_EMAIL, HIGHEST_BUYER_EMAIL FROM ITEM WHERE (ID = ?)
+	bind =&gt; [null]
+[EL Fine]: sql: 2015-12-05 17:49:02.571--ClientSession(1013728905)--Connection(1148735023)--Thread(Thread[main,5,main])--INSERT INTO ITEM (DESCRIPTION, CATDESCRIPTION, SELLER_EMAIL, HIGHEST_BUYER_EMAIL) VALUES (?, ?, ?, ?)
+	bind =&gt; [omsch_ifu1, cat2, ifu1@nl, null]
+[EL Fine]: sql: 2015-12-05 17:49:02.578--ClientSession(1013728905)--Connection(1148735023)--Thread(Thread[main,5,main])--SELECT LAST_INSERT_ID()
+[EL Fine]: sql: 2015-12-05 17:49:02.59--ClientSession(1013728905)--Connection(1148735023)--Thread(Thread[main,5,main])--DELETE FROM ITEM
+[EL Fine]: sql: 2015-12-05 17:49:02.591--ClientSession(1013728905)--Connection(1148735023)--Thread(Thread[main,5,main])--DELETE FROM BID
+[EL Fine]: sql: 2015-12-05 17:49:02.592--ClientSession(1013728905)--Connection(1148735023)--Thread(Thread[main,5,main])--DELETE FROM USER
+</system-out>
+  </testcase>
+</testsuite>

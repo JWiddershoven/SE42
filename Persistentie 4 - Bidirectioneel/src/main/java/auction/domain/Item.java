@@ -2,12 +2,12 @@ package auction.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
@@ -25,11 +25,15 @@ public class Item implements Comparable, Serializable {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    
+    @ManyToOne
     private User seller;
+    
     @Embedded
     private Category category;
+    
     private String description;
+    
     @OneToOne
     private Bid highest;
 

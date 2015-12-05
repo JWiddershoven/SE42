@@ -1,7 +1,6 @@
 package auction.domain;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,8 +13,10 @@ public class Bid implements Serializable {
 
     @Embedded
     private FontysTime time;
+    
     @Id @OneToOne
     private User buyer;
+    
     @Embedded
     private Money amount;
 

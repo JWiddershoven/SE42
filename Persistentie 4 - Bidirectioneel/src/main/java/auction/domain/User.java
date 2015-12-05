@@ -1,5 +1,7 @@
 package auction.domain;
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.Set;
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,9 @@ public class User implements Serializable {
 
     @Id
     private String email;
+    
+    @OneToMany(mappedBy = "seller")
+    private Set<Item> offeredItems;
 
     public User() {
         
@@ -25,4 +30,17 @@ public class User implements Serializable {
     public String getEmail() {
         return email;
     }
+
+    public Iterator<Item> getOfferedItems() {
+        return offeredItems.iterator();
+    } 
+    
+    private void addItem(Item item) {
+        offeredItems.add(item);
+    }
+    
+    public int numberOfOfferedItems() {
+        return offeredItems.size();
+    }
+    
 }
