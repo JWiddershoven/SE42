@@ -44,6 +44,7 @@ public class Item implements Comparable, Serializable {
         this.seller = seller;
         this.category = category;
         this.description = description;
+        seller.addItem(this);
     }
 
     public Long getId() {

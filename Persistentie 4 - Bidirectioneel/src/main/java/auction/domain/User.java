@@ -35,7 +35,7 @@ public class User implements Serializable {
         return offeredItems.iterator();
     } 
     
-    private void addItem(Item item) {
+    void addItem(Item item) {
         offeredItems.add(item);
     }
     
