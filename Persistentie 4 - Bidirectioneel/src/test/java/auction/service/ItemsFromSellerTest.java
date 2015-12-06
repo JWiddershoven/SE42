@@ -56,7 +56,7 @@ public class ItemsFromSellerTest {
 
        
         // test number of items belonging to user1
-        assertEquals(0, user1.numberOfOfferedItems());
+//        assertEquals(0, user1.numberOfOfferedItems());
         assertEquals(1, user1.numberOfOfferedItems());
         
         /*
@@ -79,7 +79,7 @@ public class ItemsFromSellerTest {
 
         User userWithItem = item2.getSeller();
         assertEquals(2, userWithItem.numberOfOfferedItems());
-        assertEquals(3, userWithItem.numberOfOfferedItems());
+//        assertEquals(3, userWithItem.numberOfOfferedItems());
         /*
          *  expected: which one of te above two assertions do you expect to be true?
          *  QUESTION:
@@ -87,7 +87,7 @@ public class ItemsFromSellerTest {
          */
         
         
-        assertNotSame(user3, userWithItem);
+//        assertNotSame(user3, userWithItem);
         assertEquals(user3, userWithItem);
 
     }
