@@ -132,7 +132,7 @@ public class ItemsFromSellerTest {
     }
     
     @Test
-    public void testNewBid()
+    public void NewBid()
     {
         
     }

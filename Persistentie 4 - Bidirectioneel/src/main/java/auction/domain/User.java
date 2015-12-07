@@ -1,5 +1,6 @@
 package auction.domain;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import javax.persistence.*;
@@ -24,7 +25,7 @@ public class User implements Serializable {
     
     public User(String email) {
         this.email = email;
-
+        offeredItems = new HashSet<>();
     }
 
     public String getEmail() {
