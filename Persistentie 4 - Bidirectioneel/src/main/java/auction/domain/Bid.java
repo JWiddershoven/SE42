@@ -5,6 +5,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import nl.fontys.util.FontysTime;
 import nl.fontys.util.Money;
 
@@ -19,6 +20,10 @@ public class Bid implements Serializable {
     
     @Embedded
     private Money amount;
+    
+    @OneToOne(mappedBy = "highest")
+    @NotNull
+    private Item item;
 
     public Bid() {
     }
@@ -40,5 +45,13 @@ public class Bid implements Serializable {
 
     public Money getAmount() {
         return this.amount;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 }

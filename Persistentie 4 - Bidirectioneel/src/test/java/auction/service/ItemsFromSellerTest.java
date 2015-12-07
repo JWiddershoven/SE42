@@ -116,8 +116,6 @@ public class ItemsFromSellerTest {
 
         // Explain difference in above two tests for te iterator of 'same' user
 
-        
-        
         User user20 = registrationMgr.getUser(email);
         Item item20 = sellerMgr.offerItem(user20, cat, omsch2);
         Iterator<Item> it20 = user20.getOfferedItems();
@@ -131,6 +129,11 @@ public class ItemsFromSellerTest {
         assertTrue(it30.hasNext());
         it30.next();
         assertTrue(it30.hasNext());
-
+    }
+    
+    @Test
+    public void testNewBid()
+    {
+        
     }
 }

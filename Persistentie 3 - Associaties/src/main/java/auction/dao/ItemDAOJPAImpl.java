@@ -6,9 +6,7 @@
 package auction.dao;
 
 import auction.domain.Item;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
