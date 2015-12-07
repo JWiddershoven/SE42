@@ -83,17 +83,37 @@ public class Item implements Comparable, Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        //TODO
-        if (this == o) return true;
-        if (!(o instanceof Item)) return false;
-        Item item2 = (Item) o;
-        return Objects.equals(this.id, item2.getId()) && Objects.equals(this.getDescription(), item2.getDescription());
+    public int hashCode() {
+        int hash = 7;
+        hash = 73 * hash + Objects.hashCode(this.id);
+        hash = 73 * hash + Objects.hashCode(this.seller);
+        hash = 73 * hash + Objects.hashCode(this.category);
+        hash = 73 * hash + Objects.hashCode(this.description);
+        hash = 73 * hash + Objects.hashCode(this.highest);
+        return hash;
     }
 
     @Override
-    public int hashCode() {
-        //TODO
-        return Objects.hash(this.id, this.category, this.description, this.highest, this.seller);
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Item other = (Item) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.seller, other.seller)) {
+            return false;
+        }
+        if (!Objects.equals(this.category, other.category)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        return true;
     }
 }
