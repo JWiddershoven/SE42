@@ -4,7 +4,6 @@ import auction.domain.User;
 import java.util.List;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
@@ -12,10 +11,8 @@ import javax.persistence.criteria.CriteriaQuery;
 public class UserDAOJPAImpl implements UserDAO {
 
     private final EntityManager em;
-    private final EntityTransaction tx;
 
     public UserDAOJPAImpl(EntityManager em) {
-        this.tx = em.getTransaction();
         this.em = em;
     }
 
@@ -31,13 +28,13 @@ public class UserDAOJPAImpl implements UserDAO {
             throw new EntityExistsException();
         }
 
-        tx.begin();
+        em.getTransaction().begin();
         try {
             em.persist(user);
-            tx.commit();
+            em.getTransaction().commit();
         }
         catch (Exception e) {
-            tx.rollback();
+            em.getTransaction().rollback();
         }
     }
 
@@ -46,13 +43,13 @@ public class UserDAOJPAImpl implements UserDAO {
         if (findByEmail(user.getEmail()) == null) {
             throw new IllegalArgumentException();
         }
-        tx.begin();
+        em.getTransaction().begin();
         try {
             em.merge(user);
-            tx.commit();
+            em.getTransaction().commit();
         }
         catch (Exception e) {
-            tx.rollback();
+            em.getTransaction().rollback();
         }
     }
 
@@ -78,13 +75,13 @@ public class UserDAOJPAImpl implements UserDAO {
 
     @Override
     public void remove(User user) {
-        tx.begin();
+        em.getTransaction().begin();
         try {
             em.remove(em.merge(user));
-            tx.commit();
+            em.getTransaction().commit();
         }
         catch (Exception e) {
-            tx.rollback();
+            em.getTransaction().rollback();
         }
     }
 }

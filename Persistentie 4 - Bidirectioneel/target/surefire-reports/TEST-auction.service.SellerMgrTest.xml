@@ -64,5 +64,5 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="auction.service.SellerMgrTest" name="testOfferItem" time="0.016"/>
-  <testcase classname="auction.service.SellerMgrTest" name="testRevokeItem" time="0.062"/>
+  <testcase classname="auction.service.SellerMgrTest" name="testRevokeItem" time="0.032"/>
 </testsuite>

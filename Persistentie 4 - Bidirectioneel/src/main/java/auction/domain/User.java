@@ -35,8 +35,15 @@ public class User implements Serializable {
         return offeredItems.iterator();
     } 
     
-    void addItem(Item item) {
+    private void addItem(Item item) {
         offeredItems.add(item);
+    }
+    
+    public void addItemToUser(Item item) {
+        if (item != null && item.getDescription() != null)
+        {
+            addItem(item);
+        }
     }
     
     public int numberOfOfferedItems() {

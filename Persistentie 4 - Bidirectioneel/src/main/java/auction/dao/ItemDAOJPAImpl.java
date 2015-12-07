@@ -23,11 +23,9 @@ import javax.persistence.criteria.CriteriaQuery;
 public class ItemDAOJPAImpl implements ItemDAO {
 
     private final EntityManager em;
-    private final EntityTransaction tx;
 
     public ItemDAOJPAImpl(EntityManager em) {
         this.em = em;
-        this.tx = em.getTransaction();
     }
 
     @Override
@@ -42,12 +40,12 @@ public class ItemDAOJPAImpl implements ItemDAO {
             throw new EntityExistsException();
         }
 
-        tx.begin();
+        em.getTransaction().begin();
         try {
             em.persist(item);
-            tx.commit();
+            em.getTransaction().commit();
         } catch (Exception e) {
-            tx.rollback();
+            em.getTransaction().rollback();
         }
     }
 
@@ -57,12 +55,12 @@ public class ItemDAOJPAImpl implements ItemDAO {
             throw new IllegalArgumentException();
         }
 
-        tx.begin();
+        em.getTransaction().begin();
         try {
             em.merge(item);
-            tx.commit();
+            em.getTransaction().commit();
         } catch (Exception e) {
-            tx.rollback();
+            em.getTransaction().rollback();
         }
     }
 
@@ -99,12 +97,12 @@ public class ItemDAOJPAImpl implements ItemDAO {
 
     @Override
     public void remove(Item item) {
-        tx.begin();
+        em.getTransaction().begin();
         try {
             em.remove(em.merge(item));
-            tx.commit();
+            em.getTransaction().commit();
         } catch (Exception e) {
-            tx.rollback();
+            em.getTransaction().rollback();
         }
     }
 
