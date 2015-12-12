@@ -27,6 +27,7 @@ public class ItemsFromSellerTest {
         registrationMgr = new RegistrationMgr(em);
         auctionMgr = new AuctionMgr(em);
         sellerMgr = new SellerMgr(em);
+        
     }
     
     @After
