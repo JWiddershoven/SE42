@@ -25,11 +25,15 @@ public class Item implements Comparable, Serializable {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     @OneToOne
     private User seller;
+    
     @Embedded
     private Category category;
+    
     private String description;
+    
     @OneToOne
     private Bid highest;
 
@@ -66,7 +70,7 @@ public class Item implements Comparable, Serializable {
         if (highest != null && highest.getAmount().compareTo(amount) >= 0) {
             return null;
         }
-        highest = new Bid(buyer, amount);
+        highest = new Bid(buyer, amount, this);
         return highest;
     }
 

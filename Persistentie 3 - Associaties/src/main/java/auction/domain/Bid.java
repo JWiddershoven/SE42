@@ -1,28 +1,40 @@
 package auction.domain;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import nl.fontys.util.FontysTime;
 import nl.fontys.util.Money;
 
 @Entity
 public class Bid implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    
     @Embedded
     private FontysTime time;
-    @Id @OneToOne
+    
+    @OneToOne
     private User buyer;
+    
     @Embedded
     private Money amount;
+    
+    @OneToOne(mappedBy = "highest")
+    @NotNull
+    private Item item;
 
     public Bid() {
     }
 
-    public Bid(User buyer, Money amount) {
+    public Bid(User buyer, Money amount, Item item) {
         //TODO
         this.amount = amount;
         this.buyer = buyer;

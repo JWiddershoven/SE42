@@ -64,7 +64,7 @@ public class Item implements Comparable, Serializable {
     }
 
     public Bid getHighestBid() {
-        return highest;
+        return this.highest;
     }
 
     public Bid newBid(User buyer, Money amount) {

@@ -1,11 +1,13 @@
 package auction.service;
 
+import auction.domain.Bid;
 import javax.persistence.*;
 import auction.domain.Category;
 import auction.domain.Item;
 import auction.domain.User;
 import java.sql.SQLException;
 import java.util.Iterator;
+import nl.fontys.util.Money;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -135,6 +137,27 @@ public class ItemsFromSellerTest {
     @Test
     public void NewBid()
     {
+        Category cat = new Category("bidirectioneel");
+        User user1 = registrationMgr.registerUser("jordyjelle@gmail.com");
+        Item item1 = sellerMgr.offerItem(user1, cat, "Leuk item");
         
+        assertEquals(1, user1.numberOfOfferedItems());
+        assertNull(item1.getHighestBid());
+        
+        Bid bid1 = auctionMgr.newBid(item1, user1, new Money(10, "eur"));
+        
+        assertNotNull(item1.getHighestBid());
+        assertEquals(item1, bid1.getItem());
+        assertEquals(user1, bid1.getBuyer());
+        assertEquals(bid1.getAmount(), new Money(10, "eur"));
+      
+        Bid bid2 = auctionMgr.newBid(item1, user1, new Money(20, "eur"));
+        assertEquals(bid2.getAmount(), new Money(20, "eur"));
+        assertEquals(bid2.getBuyer(), user1);
+        assertEquals(bid2.getItem(), item1);
+        
+        Bid bid3 = auctionMgr.newBid(item1, user1, new Money(18, "eur"));
+        assertNull(bid3);
+        assertEquals(item1.getHighestBid().getAmount(), new Money(20, "eur"));
     }
 }
