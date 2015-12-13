@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -14,6 +16,7 @@ import javax.persistence.OneToOne;
 import nl.fontys.util.Money;
 
 @Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @NamedQueries({
     @NamedQuery(name = "Item.getAll", query = "select i from Item as i"),
     @NamedQuery(name = "Item.count", query = "select count(i) from Item as i"),
