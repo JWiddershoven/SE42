@@ -6,11 +6,24 @@
 package digitalehandtekening;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.InvalidKeyException;
+import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
 import java.security.Signature;
+import java.security.SignatureException;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
+import java.security.spec.PKCS8EncodedKeySpec;
+import java.security.spec.RSAPrivateKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -24,7 +37,7 @@ public class SignFile {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         
         File privateKey = null;
         File inputEXT = null;
@@ -60,11 +73,24 @@ public class SignFile {
         }
         System.out.println(naam);
         
-        try {
-            Signature sig = Signature.getInstance("SHA1withRSA");
-        }
-        catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(SignFile.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        FileInputStream fis = new FileInputStream(privateKey);
+        DataInputStream dis = new DataInputStream(fis);
+        byte[] privateKeyBytes = new byte[(int) privateKey.length()];
+        dis.readFully(privateKeyBytes);
+        dis.close();
+        
+        PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec((privateKeyBytes));
+        KeyFactory kf = KeyFactory.getInstance("RSA");
+        PrivateKey pKey = kf.generatePrivate(spec);
+        
+        Signature sig = Signature.getInstance("SHA1withRSA");
+        sig.initSign(pKey);
+        sig.update(privateKeyBytes);
+        byte[] signature = sig.sign();
+        
+        System.out.println(signature);
+        
+        
+        
     } 
 }
