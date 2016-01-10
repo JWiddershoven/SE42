@@ -5,6 +5,7 @@
  */
 package digitalehandtekening;
 
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
@@ -18,12 +19,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.Signature;
 import java.security.SignatureException;
-import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
 import java.security.spec.PKCS8EncodedKeySpec;
-import java.security.spec.RSAPrivateKeySpec;
-import java.security.spec.X509EncodedKeySpec;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -60,6 +57,10 @@ public class SignFile {
                 System.out.println(privateKey.getPath());
                 System.out.println(inputEXT.getPath());
             }
+            else {
+                System.out.println("Invalid file. Filename must contain 'private'.");
+                return;
+            }
         }
         
         System.out.println("Vul je naam in:");
@@ -71,7 +72,6 @@ public class SignFile {
         catch (IOException ex) {
             Logger.getLogger(SignFile.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(naam);
         
         FileInputStream fis = new FileInputStream(privateKey);
         DataInputStream dis = new DataInputStream(fis);
@@ -79,18 +79,19 @@ public class SignFile {
         dis.readFully(privateKeyBytes);
         dis.close();
         
-        PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec((privateKeyBytes));
-        KeyFactory kf = KeyFactory.getInstance("RSA");
-        PrivateKey pKey = kf.generatePrivate(spec);
-        
         Signature sig = Signature.getInstance("SHA1withRSA");
+        KeyFactory kf = KeyFactory.getInstance("RSA");
+        PrivateKey pKey = kf.generatePrivate(new PKCS8EncodedKeySpec(privateKeyBytes)); 
         sig.initSign(pKey);
-        sig.update(privateKeyBytes);
-        byte[] signature = sig.sign();
         
-        System.out.println(signature);
+        FileInputStream fis2 = new FileInputStream(inputEXT);
+        DataInputStream dis2 = new DataInputStream(fis2);
+        byte[] inputEXTBytes = new byte[(int) inputEXT.length()];
+        dis.readFully(inputEXTBytes);
+        dis.close();
         
-        
-        
+        sig.update(inputEXTBytes);
+        String signedMessage = new String(Base64.encode(sig.sign()));
+        System.out.println(signedMessage);
     } 
 }

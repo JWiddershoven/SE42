@@ -29,12 +29,12 @@ public class GenerateKeys {
             keyGen.initialize(1024, random);
             KeyPair pair = keyGen.generateKeyPair();
             
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("public")))
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("public.p12")))
             {
                 out.writeObject(pair.getPublic());
             }
             
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("private")))
+            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("private.p12")))
             {
                 out.writeObject(pair.getPrivate());
             }
