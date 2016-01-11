@@ -57,7 +57,7 @@ public class VerifyFile {
                 System.out.println(inputEXTSigned.getPath());
             }
             else {
-                System.out.println("Invalid file. Filename must contain 'private'.");
+                System.out.println("Invalid file. Filename must contain 'public'.");
                 return;
             }
         }
