@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="238.0" prefWidth="339.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="encryptiewachtwoorden.EncryptieWindowController">
+   <children>
+      <CheckBox fx:id="cbEncrypt" layoutX="47.0" layoutY="43.0" mnemonicParsing="false" text="Encrypt" />
+      <PasswordField fx:id="pfWachtwoord" layoutX="34.0" layoutY="98.0" promptText="Vul hier het wachtwoord in..." />
+      <TextArea fx:id="taBericht" layoutX="34.0" layoutY="139.0" prefHeight="82.0" prefWidth="294.0" promptText="Vul hier het bericht in..." />
+      <Button layoutX="293.0" layoutY="98.0" mnemonicParsing="false" onAction="#go" text="Go" />
+   </children>
+</AnchorPane>
