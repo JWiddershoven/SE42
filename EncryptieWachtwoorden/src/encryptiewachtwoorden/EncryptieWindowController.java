@@ -125,8 +125,13 @@ public class EncryptieWindowController implements Initializable {
             Cipher pbeCipher = Cipher.getInstance("PBEWithMD5AndDES");
             pbeCipher.init(Cipher.DECRYPT_MODE, pbeKey, pbeParamSpec);
             
-            byte[] message = pbeCipher.doFinal(encryptedMessage);
-            taBericht.clear();
+            byte[] message = null;
+            try {
+                message = pbeCipher.doFinal(encryptedMessage);
+            } catch (BadPaddingException ex) {
+                taBericht.setText("Ongeldig wachtwoord!");
+                return;
+            }
             taBericht.setText(new String(message, "UTF-8"));
         }
     }
